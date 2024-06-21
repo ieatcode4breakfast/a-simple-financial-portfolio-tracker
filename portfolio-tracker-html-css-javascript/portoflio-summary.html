@@ -1,0 +1,123 @@
+<!--
+  This is an invstment porfolio tracker page where you can enter your positions/holdings. It will automatically calculate how many % is allocated to a position, its current value based on last price, current unrealized gains/loss and percentage.
+-->
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Portfolio Tracker</title>
+
+    <meta charset="UTF-8">
+
+    <!-- Load styles -->
+    <link rel="stylesheet" href="styles/general.css">
+    <link rel="stylesheet" href="styles/main-table.css">
+    <link rel="stylesheet" href="styles/header.css">
+    <link rel="stylesheet" href="styles/summary-table.css">
+    <link rel="stylesheet" href="styles/popup-window.css">
+
+    <!-- Load font styles -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+
+    <!-- A temporary, blank "favico" to get rid of the console log fav icon error -->
+    <link rel="icon" href="data:;base64,iVBORwOKGO=" />
+  </head>
+  <body>
+
+    <!-- Header containing the Portolio Summary heading and the "add a position" button -->
+    <header>
+      <h1>Portfolio Summary</h1>
+      <div class="header-buttons">
+        <div class="header-button">
+          <img class="header-icon js-add-a-position" src="icons/add-icon.svg">
+          <div class="tooltip">Add a Position</div>
+        </div>
+        <div class="header-button">
+          <img class="header-icon js-reset-portfolio" src="icons/reset-icon.png">
+          <div class="tooltip">Reset Portfolio</div>
+        </div>
+      </div>
+    </header>
+   
+    <!-- Main page content containing the table for the portfolio data and summary at the bottom -->
+    <main>
+      <section class="main-table-section">
+        <table class="portfolio-table">
+          <thead>
+            <tr> <!-- Column headers -->
+              <th class="ticker-header" scope="col" data-sort-by="ticker">Ticker</th>
+              <th class="position-name-header" scope="col" data-sort-by="positionName">Name</th>
+              <th class="asset-type-header" scope="col" data-sort-by="assetType">Asset Type</th>
+              <th class="pct-of-portfolio-header" scope="col" data-sort-by="pctOfPortfolio">% of Portfolio</th>
+              <th class="current-value-header" scope="col" data-sort-by="currentValueCents">Current Value</th>
+              <th class="total-cost-header" scope="col" data-sort-by="totalCostCents">Invested</th>
+              <th class="shares-header" scope="col" data-sort-by="shares">Shares</th>
+              <th class="avg-price-header" scope="col" data-sort-by="avgPriceCents">Average Price</th>
+              <th class="last-price-header" scope="col" data-sort-by="lastPriceCents">Last Price</th>
+              <th class="profit-loss-header" scope="col" data-sort-by="profitLossCents">Profit/Loss</th>
+              <th class="profit-loss-pct-header" scope="col" data-sort-by="profitLossPct">Profit/Loss%</th>
+              <th class="remove-button-header"></th>
+            </tr>
+          </thead>
+
+          <tbody class="js-positions">
+            <!-- Initially an empty table body. Data are dynamically loaded to the DOM -->            
+          </tbody>
+
+        </table>
+      </section>
+
+      <!-- Summary section containing total values -->
+      <section class="summary-section">
+        <div class="summary">
+          <table class="summary-table">
+            <!-- <button class="js-test-input">Add Test Inputs</button> -->
+            <tr>
+              <td>Total Invested</td>
+              <td class="total-invested js-total-invested"><!-- Total invested value --></td>
+            </tr>
+            <tr>
+              <td>Unrealized P&L</td>
+              <td class="total-profit-loss js-total-profit-loss js-sign-check"><!-- Total profit/loss --></td>
+            </tr>
+            <tr>
+              <td>Unrealized P&L%</td>
+              <td class="total-profit-loss-pct js-total-profit-loss-pct js-sign-check"><!-- Contains total profit/loss percentage --></td>
+            </tr>
+            <tr>
+              <td>Cash Balance</td>
+              <td class="cash-balance js-cash-balance"><!-- Cash balance --></td>
+            </tr>
+            <tr>
+              <td>Portfolio Value</td>
+              <td class="porfolio-value js-portfolio-value"><!-- Total portfolio value --></td>
+            </tr>
+          </table>
+        </div>
+      </section>
+
+    </main>
+
+    <!-- Reusable popup window template, content is dynamically loaded such as add position window, edit position window, edit cash, etc. -->
+    <div class="popup-overlay js-popup"> <!-- Overlay covers entire page when popup is activated -->
+      <div class="popup-window"> <!-- Popup window -->
+        <div class="popup-header js-popup-header"> 
+          <!-- Window title or header -->
+        </div>
+
+        <div class="popup-body js-popup-body">
+          <!-- Contains input fields or confirmation message, etc. -->
+        </div>
+
+        <div class="buttons-section js-buttons-section">
+          <!-- May contain diffrent buttons like submit, cancel, etc. -->
+        </div>        
+      </div>
+    </div>
+
+    <!-- Load the main JS file -->
+    <script type="module" src="scripts/portfolio-summary.js"></script>
+  </body>
+</html> 

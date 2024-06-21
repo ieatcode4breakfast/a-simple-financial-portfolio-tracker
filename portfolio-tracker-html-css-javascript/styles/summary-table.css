@@ -1,0 +1,26 @@
+/* This sheet styles the summary section of the Portoflio Summary page */
+
+.summary-section {
+  display: flex;
+  justify-content: right;
+}
+
+.summary {
+  padding: 50px;
+  font-size: 16px;
+  background-color: var(--accent-color);
+  display: inline-block;
+  border-radius: 40px;
+  color: rgb(255, 255, 255);
+  margin-right: 25px;
+}
+
+.summary-table {
+  width: 250px;
+  border-collapse: collapse;
+}
+
+/* Align the total values to the right */
+.summary-table td:nth-child(2) {
+  text-align: end;
+}

@@ -1,0 +1,114 @@
+/* This sheet styles the popup window */
+
+/* Overlay the entire page when popup window is activated */
+.popup-overlay {
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.3);
+  visibility: hidden;
+  z-index: 100;
+  inset: 0;
+}
+
+.popup-window {
+  display: flex;
+  flex-direction: column;
+  color: rgb(0, 0, 0);
+  border-radius: 30px;
+  background-color: rgb(255, 255, 255);
+  overflow: hidden;
+}
+
+.popup-header {
+  background-color: var(--accent-color);
+  padding: 25px 0 10px 0;
+  display: flex;
+  justify-content: center;
+  color: rgb(255, 255, 255);
+  font-size: 16px;
+}
+
+.popup-body {
+  padding: 20px 50px 10px;
+}
+
+.buttons-section {
+  display: flex;
+  justify-content: center;
+  padding-bottom: 25px;
+}
+
+.add-position-asset-type {
+  margin-bottom: 20px;
+}
+
+.select-asset-type {
+  padding: 5pxpx;
+  border-radius: 5px;
+  border: 1px solid rgb(120, 120, 120);
+}
+
+.input-field {
+  padding: 10px 15px;
+  border-radius: 10px;
+  border: 1px solid rgb(120, 120, 120);
+}
+
+.input-fields {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 20px;
+  row-gap: 10px;
+}
+
+.input-fields label {
+  display: block;
+}
+
+.last-price-container {
+  display: flex;
+  justify-content: center;
+  background-color: blue;
+}
+
+.buttons-section button {
+  border: none;
+  background-color: var(--accent-color);
+  color: rgb(255, 255, 255);
+  padding: 10px 25px;
+  cursor: pointer;
+  border-radius: 10px;
+  transition: background-color 0.2s ease;
+  margin: 0 5px;
+}
+
+.buttons-section button:hover {
+  background-color: var(--accent-color-hover);
+}
+
+.buttons-section button:active {
+  background-color: var(--accent-color-active);
+}
+
+
+.ticker-input {
+  text-transform: uppercase;
+}
+
+.error-message {
+  font-size: 12px;
+  text-align: center;
+  color: red;
+  margin-top: 10px;
+}
+
+.js-error-message {
+  display: none;
+}
+
+/* Reveal the error message when attempting to submit an invalid input */
+.js-invalid-input {
+  border-color: red;
+}

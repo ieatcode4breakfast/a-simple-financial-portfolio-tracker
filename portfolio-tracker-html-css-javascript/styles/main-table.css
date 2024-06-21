@@ -1,0 +1,171 @@
+/* Styles the main-table containing the positions */
+
+/* Set default table style */
+.main-table-section {
+  color: rgb(0, 0, 0);
+  margin-bottom: 20px;
+  width: 100%;
+  overflow-x: auto;
+}
+
+/* Remove table borders */
+.portfolio-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.portfolio-table th {
+  padding: 0 10px;
+  font-weight: 500;
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+.portfolio-table th:hover {
+  color: rgb(200, 200, 200);
+}
+
+/* Set cursor to pointer to indicate the rows are clickable */
+.portfolio-table td {
+  padding: 5px 10px;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+/* Set padding to the right of the table */
+.portfolio-table tr:last-child td {
+  padding-bottom: 20px;
+}
+
+/* Set padding to the left of the table */
+.portfolio-table th:first-child,
+.portfolio-table td:first-child {
+padding-left: 30px;
+}
+
+.portfolio-table tbody tr {
+  transition: background-color 0.2s;            
+}
+
+/* Show highlight effect on the row being hovered */
+.portfolio-table tbody tr:hover {
+  background-color: rgb(175, 175, 175);
+}
+
+.portfolio-table th:last-child,
+.portfolio-table td:last-child {
+  width: 40px;
+}
+
+/* Style column header */
+.portfolio-table th {
+  color: rgb(255, 255, 255);
+  background-color: var(--accent-color);
+  border-bottom: 2px solid rgb(255, 255, 255);
+  text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.15);
+  position: relative;
+}
+
+.ticker-header,
+.position-name-header,
+.ticker,
+.position-name {
+  text-align: left;
+}
+
+.ticker-header,
+.asset-type-header
+.current-value-header,
+.total-cost-header,
+.shares-header,
+.avg-price-header,
+.last-price-header,
+.profit-loss-header,
+.profit-loss-pct-header {
+  min-width: 75px;
+}
+
+.position-name-header {
+  min-width: 100px;
+  width: 300px;
+}
+
+.current-value-header,
+.total-cost-header,
+.shares-header,
+.avg-price-header,
+.last-price-header,
+.profit-loss-header,
+.profit-loss-pct-header,
+.current-value,
+.total-cost,
+.shares,
+.avg-price,
+.last-price,
+.profit-loss,
+.profit-loss-pct {
+  text-align: right;
+}
+
+.pct-of-portfolio,
+.asset-type {
+  text-align: center;
+}
+
+/* Last row is the cash row, set font to bold */
+.cash-row {
+  font-weight: 600;
+}
+
+/* Alternate the background color of every row to visualize the row better */
+.row:nth-child(odd) {
+  background-color: rgb(225, 225, 225);
+}
+
+.row:nth-child(even) {
+  background-color: rgb(255, 255, 255);
+}
+
+.remove-button-container {
+  position: relative;
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+
+.remove-icon {
+  width: 25px;
+  transition: filter 0.2s ease;
+}
+
+.remove-icon:hover {
+  filter: brightness(80%);
+}
+
+.remove-icon:active {
+  filter: brightness(75%);
+}
+
+.remove-button-container .tooltip {
+  left: -125px;
+  top: -35px;
+  color: rgb(255, 255, 255);
+}
+
+/* Reveal remove-button when hovering over row
+  Reavel tooltip when hovering over remove button/icon */
+.remove-button-container:hover .tooltip,
+.portfolio-table .row:hover .remove-button-container {
+  opacity: 1;
+}
+
+.js-arrow-up::after {
+  content: " ▲";
+}
+
+.js-arrow-down::after {
+  content: " ▼";
+}
+
+.js-ticker-column {
+  display: none;
+}

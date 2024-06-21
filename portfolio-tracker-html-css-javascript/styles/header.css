@@ -1,0 +1,58 @@
+/* This sheet styles the header section of the Portfolio Summary page */
+
+/* Header contains "Porftlio Summary" heading and add position button */
+header {
+  display: flex;
+  justify-content: space-between;
+  color: rgb(255, 255, 255);
+  align-items: flex;
+  align-items: flex-end;
+}
+
+header h1 {
+  margin: 100px 0 20px 0;
+  font-size: 30px;
+  background-color: var(--accent-color);
+  padding: 20px 40px;
+  border-radius: 0 20px 20px 0;
+}
+
+.header-buttons {
+  display: flex;
+  justify-content: space-between;
+}
+
+/* Set to relative and nests the add icon as well as the tooltip */
+.header-button {
+  position: relative;
+  margin: 0 5px 10px 0;
+}
+
+/* The "Add a position" button/icon */
+.header-icon {
+  width: 35px;
+  cursor: pointer;
+  user-select: none;
+  transition: filter 0.2s ease;
+}
+
+.header-icon:hover {
+  filter: brightness(80%);
+}
+
+.header-icon:hover + .tooltip {
+  opacity: 1;
+}
+
+.header-icon:active {
+  filter: brightness(130%);
+}
+
+.header-button .tooltip {
+  top: -40px;
+  left: -110px;
+}
+
+.icon-color {
+  fill: red;
+}

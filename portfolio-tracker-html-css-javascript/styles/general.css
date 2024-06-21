@@ -1,0 +1,49 @@
+/* This sheet sets default styles for website */
+
+:root {
+  --background-color: rgb(15, 15, 15);
+  --accent-color: rgb(45, 45, 45);
+  --accent-color-hover: rgb(70, 70, 70);
+  --accent-color-active: rgb(100, 100, 100);
+}
+
+/* Set default document styling */
+body {
+  font-family: "Open Sans", sans-serif, Arial;
+  font-size: 14px;
+  background-color: var(--background-color);
+  margin: 0;
+  color: rgb(255, 255, 255);
+  user-select: none;
+}
+
+/* Values in profit are green */
+.js-positive-number {
+  color: rgb(24, 134, 24);
+}
+
+/* Values in a loss are red */
+.js-negative-number {
+  color: rgb(255, 79, 79);
+}
+
+/* Style tooltips */
+.tooltip {
+  position: absolute;
+  width: fit-content;
+  padding: 10px;
+  border-radius: 10px 10px 0px 10px;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+  background-color: rgb(75, 75, 75);
+  white-space: nowrap;
+  pointer-events: none;
+}
+
+.capitalize {
+  text-transform: uppercase;
+}
+
+.icon-color {
+  background-color: var(--accent-color);
+}
