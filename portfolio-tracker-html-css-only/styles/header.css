@@ -1,0 +1,56 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  margin: 75px 20px 20px 0;
+  align-items: end;
+}
+
+.portfolio-summary,
+.plus-sign,
+.add-holding-tooltip {
+  background-color: rgb(75, 75, 75);
+}
+
+.portfolio-summary {
+  padding: 10px 15px 7.5px 25px;
+  border-radius: 0 10px 0 0;
+  font-size: 20px;
+  text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.15);
+  font-weight: 600;
+}
+
+.add-holding {
+  position: relative;
+}
+
+.add-icon {
+  width: 35px;
+  cursor: pointer;
+  user-select: none;
+  transition: filter 0.2s ease;
+  margin: -5px;
+  filter: brightness(125%);
+}
+
+.add-icon:hover {
+  filter: brightness(100%);
+}
+
+.add-icon:hover + .add-holding-tooltip {
+  opacity: 1;
+}
+
+.add-icon:active {
+  filter: brightness(135%);
+}
+
+.add-holding-tooltip {
+  position: absolute;
+  top:-40px;
+  left: -100px;
+  width: fit-content;
+  padding: 10px 10px 10px 10px;
+  border-radius: 10px 10px 0px 10px;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}

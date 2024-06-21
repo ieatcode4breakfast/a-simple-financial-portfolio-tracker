@@ -1,0 +1,17 @@
+.summary {
+  padding: 15px 15px 15px 25px;
+  font-size: 16px;
+  background-color: rgb(40, 40, 40);
+  display: inline-block;
+  border-radius: 0 5px 5px;
+  color: rgb(225, 225, 225);
+}
+
+.summary-table {
+  width: 250px;
+  border-collapse: collapse;
+}
+
+.summary-table td:nth-child(2) {
+  text-align: end;
+}

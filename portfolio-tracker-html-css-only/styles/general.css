@@ -1,0 +1,16 @@
+body {
+  font-family: Arial;
+  font-size: 14px;
+  background-color: rgb(25, 25, 25);
+  margin: 0;
+  color: white;
+  user-select: none;
+}
+
+td[data-value="+"] {
+  color: rgb(24, 134, 24);
+}
+
+td[data-value="-"] {
+  color: rgb(255, 79, 79);
+}

@@ -1,0 +1,132 @@
+.table-section {
+  margin: 0 0 20px 0;
+  width: 100%;
+}
+
+.portfolio-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.table-body {
+  color: black;
+}
+
+.column-headers {
+  background-color: rgb(70, 70, 70);
+  border-bottom: 2px solid rgb(255, 255, 255);
+  text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.15);
+}
+
+.column-headers th {
+  text-align: left;
+  font-size: 13px;
+  padding-top: 2px;
+  padding-bottom: 2px;
+}
+
+.ticker,
+.asset-type,
+.pct-of-portfolio,
+.current-value,
+.total-cost,
+.avg-price,
+.last-price,
+.profit-loss,
+.profit-loss-pct,
+.remove-holding {
+  min-width: 75px;
+  width: 100px;
+}
+
+.column-headers th:first-child, 
+.row td:first-child {
+  padding-left: 25px;
+}
+
+.column-headers th:first-child, 
+.row td:first-child {
+  padding-left: 25px;
+}
+
+.column-headers th:last-child, 
+.row td:last-child {
+  padding-right: 25px;
+}
+
+.column-headers th:nth-child(n+3),
+.row td:nth-child(n+3) {
+  text-align: right;
+}
+
+.asset-type,
+.pct-of-portfolio,
+.remove-holding {
+  text-align: center !important;
+}
+
+
+.row td {
+  height: 35px;
+}
+
+.row:nth-child(odd) {
+  background-color: rgb(225, 225, 225);
+}
+
+.row:nth-child(even) {
+  background-color: rgb(255, 255, 255);
+}
+
+.profit-loss-pct,
+.avg-price,
+.last-price {
+  text-align: right;
+}
+
+.row:last-child {
+  font-weight: 600;
+}
+
+.row .remove-holding {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.remove-holding-container {
+  position: relative;
+}
+
+.remove-icon {
+  width: 20px;
+  cursor: pointer;
+  transition: filter 0.2 ease;
+}
+
+.remove-icon:hover {
+  filter: brightness(85%);
+}
+
+.remove-icon:hover + .remove-holding-tooltip {
+  opacity: 1;
+}
+
+.remove-icon:active {
+  filter: brightness(110%);
+}
+
+.remove-holding-tooltip {
+  position: absolute;
+  top: -35px;
+  left: -120px;
+  padding: 10px 10px 10px 10px;
+  border-radius: 10px 10px 0px 10px;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+  color: rgb(255, 255, 255);
+  background-color: rgb(75, 75, 75);
+  pointer-events: none;
+  white-space: nowrap;
+}
+

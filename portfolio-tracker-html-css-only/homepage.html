@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Personal Investment Portfolio Tracker</title>
+    <link rel="stylesheet" href="styles/general.css">
+    <link rel="stylesheet" href="styles/main-table.css">
+    <link rel="stylesheet" href="styles/header.css">
+    <link rel="stylesheet" href="styles/summary-table.css">
+  </head>
+  <body>
+    <header class="header">
+      <div class="portfolio-summary">Portfolio Summary</div>
+      <div class="add-holding">
+        <img class="add-icon" src="icons/add-icon.png">
+        <div class="add-holding-tooltip">Add holding</div>
+      </div>
+    </header>
+
+    <main>
+      <section class="table-section">
+        <table class="portfolio-table">
+          <thead>
+            <tr class="column-headers">
+              <th class="ticker" scope="col">Ticker</th>
+              <th class="holding-name" scope="col">Name</th>
+              <th class="asset-type" scope="col">Asset Type</th>
+              <th class="pct-of-portfolio" scope="col">% of Portfolio</th>
+              <th class="current-value" scope="col">Current Value</th>
+              <th class="total-cost" scope="col">Total Cost</th>
+              <th class="avg-price" scope="col">Average Price</th>
+              <th class="last-price" scope="col">Last Price</th>
+              <th class="profit-loss" scope="col">Profit/Loss</th>
+              <th class="profit-loss-pct" scope="col">Profit/Loss %</th>
+              <th class="remove-holding"></th>
+            </tr>
+          </thead>
+          <tbody class="table-body">
+            <tr class="row">
+              <td class="ticker">BTC</td>
+              <td class="holding-name">Bitcoin</td>
+              <td class="asset-type">Crypto</td>
+              <td class="pct-of-portfolio">44.12%</td>
+              <td class="current-value">$696.86</td>
+              <td class="total-cost">$732.33</td>
+              <td class="avg-price">$67,488.14</td>
+              <td class="last-price">$64,219.3100</td>
+              <td class="profit-loss">-$35.47</td>
+              <td class="profit-loss-pct" data-value="-">-5.66%</td>
+              <td class="remove-holding">
+                <div class="remove-holding-container">
+                  <div class="remove-icon"><img class="remove-icon" src="icons/remove-icon.png"></div>
+                  <div class="remove-holding-tooltip">Remove holding</div>
+                </div>
+              </td>
+            </tr>
+            <tr class="row">
+              <td class="ticker">ALGO</td>
+              <td td class="holding-name">Algorand</td>
+              <td class="asset-type">Crypto</td>
+              <td class="pct-of-portfolio">16.56%</td>
+              <td class="current-value">$261.59</td>
+              <td class="total-cost">$265.56</td>
+              <td class="avg-price">$0.2005</td>
+              <td class="last-price">$0.1975</td>
+              <td class="profit-loss">-$3.97</td>
+              <td class="profit-loss-pct" data-value="-">-1.50%</td>
+              <td class="remove-holding">
+                <div class="remove-holding-container">
+                  <div class="remove-icon"><img class="remove-icon" src="icons/remove-icon.png"></div>
+                  <div class="remove-holding-tooltip">Remove holding</div>
+                </div>
+              </td>
+            </tr>
+            <tr class="row">
+              <td class="ticker">GOOG</td>
+              <td class="holding-name">Aphabet</td>
+              <td class="asset-type">Stock</td>
+              <td class="pct-of-portfolio">8.05%</td>
+              <td class="current-value">$127.10</td>
+              <td class="total-cost">$100.22</td>
+              <td class="avg-price">$133.2700</td>
+              <td class="last-price">$169.0100</td>
+              <td class="profit-loss">+$26.88</td>
+              <td class="profit-loss-pct" data-value="+">+26.82%</td>
+              <td class="remove-holding">
+                <div class="remove-holding-container">
+                  <div class="remove-icon"><img class="remove-icon" src="icons/remove-icon.png"></div>
+                  <div class="remove-holding-tooltip">Remove holding</div>
+                </div>
+              </td>
+            </tr>
+            <tr class="row">
+              <td class="ticker">AAPL</td>
+              <td class="holding-name">Apple</td>
+              <td class="asset-type">Stock</td>
+              <td class="pct-of-portfolio">7.47%</td>
+              <td class="current-value">$118.07</td>
+              <td class="total-cost">$110.35</td>
+              <td class="avg-price">$171.3700</td>
+              <td class="last-price">$183.3600</td>
+              <td class="profit-loss">+$7.72</td>
+              <td class="profit-loss-pct" data-value="+">+7.00%</td>
+              <td class="remove-holding">
+                <div class="remove-holding-container">
+                  <div class="remove-icon"><img class="remove-icon" src="icons/remove-icon.png"></div>
+                  <div class="remove-holding-tooltip">Remove holding</div>
+                </div>
+              </td>
+            </tr>
+            <tr class="row">
+              <td class="ticker">PLTR</td>
+              <td class="holding-name">Palantir</td>
+              <td class="asset-type">Stock</td>
+              <td class="pct-of-portfolio">6.44%</td>
+              <td class="current-value">$101.79</td>
+              <td class="total-cost">$100.35</td>
+              <td class="avg-price">$23.0000</td>
+              <td class="last-price">$23.3300</td>
+              <td class="profit-loss">+$1.44</td>
+              <td class="profit-loss-pct" data-value="+">+1.43%</td>
+              <td class="remove-holding">
+                <div class="remove-holding-container">
+                  <div class="remove-icon"><img class="remove-icon" src="icons/remove-icon.png"></div>
+                  <div class="remove-holding-tooltip">Remove holding</div>
+                </div>
+              </td>
+            </tr>
+            <tr class="row">
+              <td class="ticker">SOFI</td>
+              <td class="holding-name">SoFi Technologies</td>
+              <td class="asset-type">Stock</td>
+              <td class="pct-of-portfolio">6.16%</td>
+              <td class="current-value">$97.37</td>
+              <td class="total-cost">$100.31</td>
+              <td class="avg-price">$7.1700</td>
+              <td class="last-price">$6.9600</td>
+              <td class="profit-loss">-$2.94</td>
+              <td class="profit-loss-pct" data-value="-">-2.93%</td>
+              <td class="remove-holding">
+                <div class="remove-holding-container">
+                  <div class="remove-icon"><img class="remove-icon" src="icons/remove-icon.png"></div>
+                  <div class="remove-holding-tooltip">Remove holding</div>
+                </div>
+              </td>
+            </tr>
+            <tr class="row">
+              <td class="ticker">AMD</td>
+              <td class="holding-name">Advanced Micro Devices</td>
+              <td class="asset-type">Stock</td>
+              <td class="pct-of-portfolio">6.07%</td>
+              <td class="current-value">$95.90</td>
+              <td class="total-cost">$99.35</td>
+              <td class="avg-price">$155.9900</td>
+              <td class="last-price">$150.5800</td>
+              <td class="profit-loss">-$3.45</td>
+              <td class="profit-loss-pct"  data-value="-">-3.47%</td>
+              <td class="remove-holding">
+                <div class="remove-holding-container">
+                  <div class="remove-icon"><img class="remove-icon" src="icons/remove-icon.png"></div>
+                  <div class="remove-holding-tooltip">Remove holding</div>
+                </div>
+              </td>
+            </tr>
+            <tr class="row">
+              <td class="ticker">DNUT</td>
+              <td class="holding-name">Krispy Kreme</td>
+              <td class="asset-type">Stock</td>
+              <td class="pct-of-portfolio">5.06%</td>
+              <td class="current-value">$79.97</td>
+              <td class="total-cost">$100.37</td>
+              <td class="avg-price">$15.8900</td>
+              <td class="last-price">$12.6600</td>
+              <td class="profit-loss">-$20.40</td>
+              <td class="profit-loss-pct" data-value="-">-20.33%</td>
+              <td class="remove-holding">
+                <div class="remove-holding-container">
+                  <div class="remove-icon"><img class="remove-icon" src="icons/remove-icon.png"></div>
+                  <div class="remove-holding-tooltip">Remove holding</div>
+                </div>
+              </td>
+            </tr>
+            <tr class="row">
+              <td class="holding-name">Cash</td>
+              <td></td>
+              <td></td>
+              <td class="pct-of-portfolio">0.06%</td>
+              <td class="current-value">$0.89</td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+      <section class="summary">
+        <table class="summary-table">
+          <tr>
+            <td>Total Invested</td>
+            <td>$1,608.83</td>
+          </tr>
+          <tr>
+            <td>Unrealized P&L</td>
+            <td data-value="-">-$29.30</td>
+          </tr>
+          <tr>
+            <td>Unrealized P&L%</td>
+            <td data-value="-">-1.82%</td>
+          </tr>
+          <tr>
+            <td>Cash Balance</td>
+            <td >$0.89</td>
+          </tr>
+          <tr>
+            <td>Portfolio Value</td>
+            <td>$1,579.53</td>
+          </tr>
+        </table>
+      </section>
+    </main>
+  </body>
+</html>
