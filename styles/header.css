@@ -1,0 +1,13 @@
+header {
+  margin: 2rem 0;
+}
+
+.page-title {
+  display: flex;
+  background-color: var(--accent-color);
+  padding: 1rem 3rem 1rem 1rem;
+  width: fit-content;
+  border-radius: 0 2rem 0 0;
+  white-space: nowrap;
+  margin-bottom: 2rem;
+}

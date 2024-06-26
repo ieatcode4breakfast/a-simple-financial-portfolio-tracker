@@ -1,0 +1,62 @@
+.portfolio-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.portfolio-table th {
+  color: rgb(255, 255, 255);
+  background-color: var(--accent-color);
+  border-bottom: 2px solid rgb(255, 255, 255);
+}
+
+.portfolio-table th,
+.portfolio-table td {
+  padding: 0.5rem;
+  white-space: nowrap;
+}
+
+.portfolio-table th:first-child,
+.portfolio-table td:first-child {
+  padding: 0.5rem;
+  position: sticky;
+  left: 0;
+}
+
+.portfolio-table td:first-child {
+  background-color: inherit;
+}
+
+/* Alternate the background color of every row to visualize the row better */
+.portfolio-table tr:nth-child(odd) {
+  background-color: var(--cell-odd);
+}
+
+.portfolio-table tr:nth-child(even) {
+  background-color: var(--cell-even);
+}
+
+.portfolio-table td {
+  color: var(--portfolio-cell-text-color);
+}
+
+.pct-of-portfolio,
+.asset-type {
+  text-align: center;
+}
+
+.current-value-header,
+.total-cost-header,
+.shares-header,
+.avg-price-header,
+.last-price-header,
+.profit-loss-header,
+.profit-loss-pct-header,
+.current-value,
+.total-cost,
+.shares,
+.avg-price,
+.last-price,
+.profit-loss,
+.profit-loss-pct {
+  text-align: right;
+}

@@ -1,0 +1,57 @@
+.portfolio-table-section {
+  width: 100%;
+  overflow: auto;
+}
+
+.summary-container {
+  display: flex;
+  width: 17rem;
+  padding: 1rem 2rem 1.2rem 2rem;
+  background-color: var(--accent-color);
+  border-radius: 0 1rem 1rem 0;
+  flex-direction: column;
+  margin-bottom: 1rem;
+}
+
+.summary-title {
+  text-align: center;
+  margin-bottom: 0.2rem;
+}
+
+.summary-table td {
+  padding: 0 0.5rem;
+  white-space: nowrap;
+}
+
+.summary-table td:nth-child(2) {
+  text-align: right;
+}
+
+.portfolio-options {
+  display: flex;
+  margin-bottom: 0.5rem;
+  margin-left: 0.5rem;
+}
+
+.portfolio-option {
+  display: flex;
+  align-items: center;
+  padding: 0.5rem 1rem 0.5rem 0.6rem;
+  white-space: nowrap;
+  border-radius: 0.3rem;
+  cursor: pointer;
+  transition: background-color 0.1s ease;
+}
+
+.portfolio-option:hover {
+  background-color: var(--accent-color);
+}
+
+.portfolio-option:active {
+  background-color: var(--portfolio-option-active);
+}
+
+.option-icon {
+  width: 2rem;
+  margin-right: 0.5rem;
+}

@@ -1,0 +1,49 @@
+/* Default styles for the website */
+
+:root {
+  --background-color: rgb(15, 15, 15);
+  --accent-color: rgb(45, 45, 45);
+  --primary-text-color: rgb(255, 255, 255);
+  --portfolio-cell-text-color: rgb(0, 0, 0);
+  --cell-odd: rgb(225, 225, 225);
+  --cell-even: rgb(255, 255, 255);
+  --positive: rgb(24, 134, 24);
+  --negative: rgb(255, 79, 79);
+  --portfolio-option-active: rgb(40, 40, 40);
+}
+
+body {
+  font-family: "Open Sans", sans-serif, Arial;
+  font-size: 16px;
+  background-color: var(--background-color);
+  color: var(--primary-text-color);
+}
+
+body, h1, h2, h3 {
+  margin: 0;
+}
+
+h1 {
+  font-size: 2rem;
+}
+
+h3 {
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.js-positive-number {
+  color: var(--positive)
+}
+
+.js-negative-number {
+  color: var(--negative)
+}
+
+.capitalize {
+  text-transform: uppercase;
+}
+
+.icon-color {
+  background-color: var(--accent-color);
+}
