@@ -5,7 +5,7 @@
 
 .summary-container {
   display: flex;
-  width: 17rem;
+  width: 15rem;
   padding: 1rem 2rem 1.2rem 2rem;
   background-color: var(--accent-color);
   border-radius: 0 1rem 1rem 0;
@@ -19,7 +19,7 @@
 }
 
 .summary-table td {
-  padding: 0;
+  padding: 0 0.5rem;
   white-space: nowrap;
 }
 
