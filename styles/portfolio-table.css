@@ -20,6 +20,7 @@
   padding: 0.5rem;
   position: sticky;
   left: 0;
+  font-weight: 600;
 }
 
 .portfolio-table td:first-child {
@@ -44,17 +45,10 @@
   text-align: center;
 }
 
-.current-value-header,
-.total-cost-header,
-.shares-header,
-.avg-price-header,
-.last-price-header,
-.profit-loss-header,
-.profit-loss-pct-header,
 .current-value,
 .total-cost,
 .shares,
-.avg-price,
+.average-price,
 .last-price,
 .profit-loss,
 .profit-loss-pct {

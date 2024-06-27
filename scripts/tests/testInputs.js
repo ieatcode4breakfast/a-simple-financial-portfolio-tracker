@@ -1,5 +1,6 @@
 import Asset from '../data/asset.js';
 import { portfolio } from '../index.js';
+import { portfolioTable } from '../index.js';
 
 export const testInput1 = {
   type: 'Crypto',
@@ -74,10 +75,5 @@ async function submitAssetTest(input) {
   await submitAssetTest(testInput7);
   await submitAssetTest(testInput8);
   
-  console.log(portfolio.assets);
-  console.log(portfolio.totalInvested);
-  console.log(portfolio.totalProfitLoss);
-  console.log(portfolio.totalProfitLossPct);
-  console.log(portfolio.cashBalance);
-  console.log(portfolio.totalPortfolioValue);
+  portfolioTable.renderAssets(portfolio);
 })();
