@@ -61,14 +61,23 @@ async function submitAssetTest(input) {
   const asset = new Asset(input);
   await asset.processAssetData();
   portfolio.assets.push(asset);
+  portfolio.calculateTotals();
 }
 
-submitAssetTest(testInput1);
-submitAssetTest(testInput2);
-submitAssetTest(testInput3);
-submitAssetTest(testInput4);
-submitAssetTest(testInput5);
-submitAssetTest(testInput6);
-submitAssetTest(testInput7);
-submitAssetTest(testInput8);
-console.log(portfolio.assets);
+(async () => {
+  await submitAssetTest(testInput1);
+  await submitAssetTest(testInput2);
+  await submitAssetTest(testInput3);
+  await submitAssetTest(testInput4);
+  await submitAssetTest(testInput5);
+  await submitAssetTest(testInput6);
+  await submitAssetTest(testInput7);
+  await submitAssetTest(testInput8);
+  
+  console.log(portfolio.assets);
+  console.log(portfolio.totalInvested);
+  console.log(portfolio.totalProfitLoss);
+  console.log(portfolio.totalProfitLossPct);
+  console.log(portfolio.cashBalance);
+  console.log(portfolio.totalPortfolioValue);
+})();

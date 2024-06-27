@@ -5,6 +5,7 @@ export class Asset {
   ticker;
   name;
   type;
+  pctOfPortfolio;
   currentValue;
   totalCost;
   shares;
@@ -29,7 +30,7 @@ export class Asset {
       this.lastPrice = liveData.lastPrice;
       this.currentValue = this.shares * this.lastPrice;
       this.averagePrice = this.totalCost / this.shares;
-      this.profitLoss = this.currentValue / this.totalCost;
+      this.profitLoss = this.currentValue - this.totalCost;
       this.profitLossPct = this.profitLoss / this.totalCost;
       this.lastPriceDecimals = this.#countDecimals(this.lastPrice);
 
