@@ -4,6 +4,7 @@ const format = {
 
     if (pnl && number > 0) {
       return `+${number}%`;
+      
     } else {
       return `${number}%`;
     }
