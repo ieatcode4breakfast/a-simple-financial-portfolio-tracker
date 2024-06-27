@@ -20,7 +20,8 @@ class Portfolio {
   calculateTotals() {
     this.#resetTotals();
 
-    this.assets.forEach(asset => {
+    this.assets.forEach((asset, index) => {
+      asset.id = `asset-${index + 1}`;
       this.totalInvested += asset.totalCost;
       this.#assetsTotalValue += asset.currentValue;
       this.totalProfitLoss += asset.profitLoss;
@@ -39,7 +40,7 @@ class Portfolio {
   }
 
   #calculateAssetPct() {
-    this.assets.forEach(asset => {
+    this.assets.forEach(asset=> {
       asset.pctOfPortfolio = asset.currentValue / this.totalPortfolioValue;
     });
   }
