@@ -75,5 +75,6 @@ async function submitAssetTest(input) {
   await submitAssetTest(testInput7);
   await submitAssetTest(testInput8);
   
+  console.log(portfolio);
   portfolioTable.renderAssets(portfolio);
 })();

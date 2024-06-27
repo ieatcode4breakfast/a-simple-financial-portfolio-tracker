@@ -33,11 +33,11 @@ h3 {
 }
 
 .js-positive-number {
-  color: var(--positive)
+  color: var(--positive) !important;
 }
 
 .js-negative-number {
-  color: var(--negative)
+  color: var(--negative) !important;
 }
 
 .capitalize {

@@ -1,12 +1,18 @@
+import { profitLossStyle } from './format.js';
+
 class PortfolioTable {
   renderAssets(portfolio) {
     const tableBody = document.querySelector('.js-table-body');
+
     portfolio.assets.forEach(asset => {
-      tableBody.innerHTML += this.#generateAssetRow(asset);
+      const profitLossClass = profitLossStyle(asset.profitLoss);
+      tableBody.innerHTML += this.#generateAssetRow(asset, profitLossClass);
     })
+
+    tableBody.innerHTML += this.#generateCashRow(portfolio.cashBalancePct, portfolio.cashBalance);
   }
   
-  #generateAssetRow(asset) {
+  #generateAssetRow(asset, profitLossClass) {
     return `
       <tr data-asset-id="${asset.id}">
         <td class="ticker">${asset.ticker}</td>
@@ -18,14 +24,28 @@ class PortfolioTable {
         <td class="shares">${asset.shares}</td>
         <td class="average-price">${asset.averagePrice}</td>
         <td class="last-price">${asset.lastPrice}</td>
-        <td class="profit-loss js-sign-check">${asset.profitLoss}</td>
-        <td class="profit-loss-pct js-sign-check">${asset.profitLossPct}</td>
+        <td class="profit-loss ${profitLossClass}">${asset.profitLoss}</td>
+        <td class="profit-loss-pct ${profitLossClass}">${asset.profitLossPct}</td>
       </tr>
     `;
   }
 
-  #generateCashRow() {
-    
+  #generateCashRow(pct, balance) {
+    return `
+    <tr>
+      <td>Cash</td>
+      <td></td>
+      <td></td>
+      <td class="pct-of-portfolio">${pct}</td>
+      <td class="current-value">${balance}</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    `
   }
 }
 

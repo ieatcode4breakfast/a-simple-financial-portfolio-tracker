@@ -4,6 +4,7 @@ class Portfolio {
   totalProfitLoss
   totalProfitLossPct;
   cashBalance;
+  cashBalancePct;
   totalPortfolioValue;
   #assetsTotalValue;
 
@@ -40,7 +41,8 @@ class Portfolio {
   }
 
   #calculateAssetPct() {
-    this.assets.forEach(asset=> {
+    this.cashBalancePct = this.cashBalance / this.totalPortfolioValue;
+    this.assets.forEach(asset => {
       asset.pctOfPortfolio = asset.currentValue / this.totalPortfolioValue;
     });
   }
