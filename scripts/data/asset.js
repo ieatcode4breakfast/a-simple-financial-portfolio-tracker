@@ -1,6 +1,7 @@
 import mockFetch from '../tests/mockFetch.js';
 
 export class Asset {
+  id;
   ticker;
   name;
   type;
@@ -31,7 +32,7 @@ export class Asset {
       this.profitLoss = this.currentValue / this.totalCost;
       this.profitLossPct = this.profitLoss / this.totalCost;
       this.lastPriceDecimals = this.#countDecimals(this.lastPrice);
-      console.log(this);
+
     } catch (error) {
       console.error(`An error occurred while processing data for ticker symbol ${this.ticker}`, error);
     }

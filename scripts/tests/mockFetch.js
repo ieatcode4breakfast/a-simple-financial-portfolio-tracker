@@ -1,4 +1,5 @@
 // Simulate an async fetch operation
+
 async function mockFetch(ticker) {
   return mockAssetData.find(asset => asset.ticker === ticker);
 }

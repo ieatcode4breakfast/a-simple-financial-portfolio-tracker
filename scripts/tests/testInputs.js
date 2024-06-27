@@ -1,4 +1,5 @@
 import Asset from '../data/asset.js';
+import { portfolio } from '../index.js';
 
 export const testInput1 = {
   type: 'Crypto',
@@ -56,11 +57,18 @@ export const testInput8 = {
   totalCost: 99.31,
 };
 
-const asset1 = new Asset(testInput1);
-const asset2 = new Asset(testInput2);
-const asset3 = new Asset(testInput3);
-const asset4 = new Asset(testInput4);
-const asset5 = new Asset(testInput5);
-const asset6 = new Asset(testInput6);
-const asset7 = new Asset(testInput7);
-const asset8 = new Asset(testInput8);
+async function submitAssetTest(input) {
+  const asset = new Asset(input);
+  await asset.processAssetData();
+  portfolio.assets.push(asset);
+}
+
+submitAssetTest(testInput1);
+submitAssetTest(testInput2);
+submitAssetTest(testInput3);
+submitAssetTest(testInput4);
+submitAssetTest(testInput5);
+submitAssetTest(testInput6);
+submitAssetTest(testInput7);
+submitAssetTest(testInput8);
+console.log(portfolio.assets);
