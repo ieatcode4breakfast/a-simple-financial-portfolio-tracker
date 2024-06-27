@@ -29,6 +29,7 @@
 
 .portfolio-options {
   display: flex;
+  justify-content: right;
   margin-bottom: 0.5rem;
   margin-left: 0.5rem;
 }
