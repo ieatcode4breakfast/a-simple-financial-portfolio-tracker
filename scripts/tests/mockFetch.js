@@ -1,7 +1,6 @@
 // Simulate an async fetch operation
-
 async function mockFetch(ticker) {
-  return mockLastPriceData.find(asset => asset.ticker === ticker);
+  return mockAssetData.find(asset => asset.ticker === ticker);
 }
 
 const mockAssetData = [
@@ -38,6 +37,5 @@ const mockAssetData = [
   { ticker: 'WFC', name: 'Wells Fargo', lastPrice: 57.14 },
   { ticker: 'DIS', name: 'Disney', lastPrice: 102.15 }
 ];
-
 
 export default mockFetch;

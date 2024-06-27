@@ -1,15 +1,15 @@
-import {addPosition} from './positions.js';
+import Asset from '../data/asset.js';
 
 export const testInput1 = {
   type: 'Crypto',
-  ticker: 'BTC',
+  ticker: 'BTC-USD',
   shares: 0.010851,
   totalCost: 732.33,
 };
 
 export const testInput2 = {
   type: 'Crypto',
-  ticker: 'ALGO',
+  ticker: 'ALGO-USD',
   shares: 1324.488921,
   totalCost: 265.56,
 };
@@ -55,3 +55,12 @@ export const testInput8 = {
   shares: 0.977400,
   totalCost: 99.31,
 };
+
+const asset1 = new Asset(testInput1);
+const asset2 = new Asset(testInput2);
+const asset3 = new Asset(testInput3);
+const asset4 = new Asset(testInput4);
+const asset5 = new Asset(testInput5);
+const asset6 = new Asset(testInput6);
+const asset7 = new Asset(testInput7);
+const asset8 = new Asset(testInput8);
