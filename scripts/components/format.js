@@ -17,11 +17,14 @@ const format = {
       return `$${number}`;
     }
 
-    if (number > 0) {
+    if (num > 0) {
       return `+$${number}`;
 
-    } else if (number < 0) {
+    } else if (num < 0) {
       return `${number.replace('-', '-$')}`;
+    
+    } else {
+      return '$0.00';
     }
   },
 

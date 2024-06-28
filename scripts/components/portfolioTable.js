@@ -13,6 +13,7 @@ class PortfolioTable {
   }
   
   #generateAssetRow(asset, profitLossClass) {
+    console.log(asset.ticker, asset.profitLoss);
     return `
       <tr data-asset-id="${asset.id}">
         <td class="ticker">${asset.ticker}</td>

@@ -29,7 +29,7 @@ class Portfolio {
     });
 
     this.totalPortfolioValue = this.#assetsTotalValue + this.cashBalance;
-    this.totalProfitLossPct = this.totalProfitLoss / (this.#assetsTotalValue + this.cashBalance);
+    this.totalProfitLossPct = this.#assetsTotalValue === 0 ? 0 : this.totalProfitLoss / (this.#assetsTotalValue + this.cashBalance);
 
     this.#calculateAssetPct();
   }
@@ -41,9 +41,9 @@ class Portfolio {
   }
 
   #calculateAssetPct() {
-    this.cashBalancePct = this.cashBalance / this.totalPortfolioValue;
+    this.cashBalancePct = this.totalPortfolioValue === 0 ? 0 : this.cashBalance / this.totalPortfolioValue;
     this.assets.forEach(asset => {
-      asset.pctOfPortfolio = asset.currentValue / this.totalPortfolioValue;
+      asset.pctOfPortfolio = this.totalPortfolioValue === 0 ? 0 : asset.currentValue / this.totalPortfolioValue;
     });
   }
 }

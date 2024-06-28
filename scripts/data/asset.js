@@ -25,7 +25,6 @@ export class Asset {
   async processAssetData() {
     try {
       const liveData = await mockFetch(this.ticker);
-
       this.name = liveData.name;
       this.lastPrice = liveData.lastPrice;
       this.currentValue = this.shares * this.lastPrice;
