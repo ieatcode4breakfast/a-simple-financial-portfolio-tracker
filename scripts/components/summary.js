@@ -19,16 +19,11 @@ class Summary {
     const profitLossClass = format.profitLossClass(portfolio.totalProfitLoss);
 
     this.#totalInvestedCell.innerText = format.dollars(portfolio.totalInvested);
-    
     this.#unrealizedPnlCell.classList.add(`${profitLossClass}`);
-    this.#unrealizedPnlCell.innerText = format.dollars(portfolio.totalProfitLoss, 2, true);
-    
+    this.#unrealizedPnlCell.innerText = format.profitLoss(portfolio.totalProfitLoss);
     this.#unrealizedPnlPctCell.classList.add(`${profitLossClass}`);
     this.#unrealizedPnlPctCell.innerText = format.pct(portfolio.totalProfitLossPct, true);
-
-    
     this.#cashCell.innerText = format.dollars(portfolio.cashBalance);
-    
     this.#portfolioValueCell.innerText = format.dollars(portfolio.totalPortfolioValue);
   }
 }

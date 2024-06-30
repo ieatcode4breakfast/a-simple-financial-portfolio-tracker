@@ -25,7 +25,7 @@ class PortfolioTable {
         <td class="shares">${asset.shares}</td>
         <td class="average-price">${format.dollars(asset.averagePrice, asset.lastPriceDecimals)}</td>
         <td class="last-price">${format.dollars(asset.lastPrice, asset.lastPriceDecimals)}</td>
-        <td class="profit-loss ${profitLossClass}">${format.dollars(asset.profitLoss, 2, true)}</td>
+        <td class="profit-loss ${profitLossClass}">${format.profitLoss(asset.profitLoss)}</td>
         <td class="profit-loss-pct ${profitLossClass}">${format.pct(asset.profitLossPct, true)}</td>
       </tr>
     `;
