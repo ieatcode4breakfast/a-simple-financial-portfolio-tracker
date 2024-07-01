@@ -29,6 +29,7 @@ class PortfolioTable {
         <td class="last-price">${format.dollars(asset.lastPrice, asset.lastPriceDecimals)}</td>
         <td class="profit-loss ${profitLossClass}">${format.profitLoss(asset.profitLoss)}</td>
         <td class="profit-loss-pct ${profitLossClass}">${format.pct(asset.profitLossPct, true)}</td>
+        <td class="remove-position"><img src="icons/remove-icon.png" class="remove-icon"></td>
       </tr>
     `;
   }
@@ -42,6 +43,7 @@ class PortfolioTable {
       <td></td>
       <td class="pct-of-portfolio">${format.pct(pct)}</td>
       <td class="current-value">${format.dollars(balance)}</td>
+      <td></td>
       <td></td>
       <td></td>
       <td></td>

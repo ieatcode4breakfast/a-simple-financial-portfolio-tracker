@@ -58,3 +58,17 @@
 .cash-row {
   font-weight: 600;
 }
+
+.remove-icon {
+  width: 1.5rem;
+  cursor: pointer;
+  transition: filter 0.2s ease;
+}
+
+.remove-icon:hover {
+  filter: brightness(75%);
+}
+
+.remove-icon:active {
+  filter: brightness(50%);
+}
