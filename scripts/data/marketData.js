@@ -1,6 +1,6 @@
 import storage from '../utils/storage.js';
 
-const API_KEY = 'c71cce3ac1msh421962764be7fa5p1e673djsnb85e61fa2cb8';
+const API_KEY = 'dba43241c4msh36d58bdf3f8635bp1cc051jsnf030d478617d';
 
 const marketData = {
   stored: storage.get('marketData') || [],
