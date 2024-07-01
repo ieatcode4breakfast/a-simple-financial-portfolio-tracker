@@ -1,4 +1,4 @@
-import mockFetch from '../tests/mockFetch.js';
+import marketData from './marketData.js';
 
 export class Asset {
   id;
@@ -22,20 +22,15 @@ export class Asset {
     this.shares = assetInput.shares;
   }
 
-  async processAssetData() {
-    try {
-      const liveData = await mockFetch(this.ticker);
-      this.name = liveData.name;
-      this.lastPrice = liveData.lastPrice;
-      this.currentValue = this.shares * this.lastPrice;
-      this.averagePrice = this.totalCost / this.shares;
-      this.profitLoss = this.currentValue - this.totalCost;
-      this.profitLossPct = this.profitLoss / this.totalCost;
-      this.lastPriceDecimals = this.#countDecimals(this.lastPrice);
-
-    } catch (error) {
-      console.error(`An error occurred while processing data for ticker symbol ${this.ticker}`, error);
-    }
+  processAssetData() {
+    const data = marketData.search(this.ticker);
+    this.name = data.name;
+    this.lastPrice = data.lastPrice;
+    this.currentValue = this.shares * this.lastPrice;
+    this.averagePrice = this.totalCost / this.shares;
+    this.profitLoss = this.currentValue - this.totalCost;
+    this.profitLossPct = this.profitLoss / this.totalCost;
+    this.lastPriceDecimals = this.#countDecimals(this.lastPrice);
   }
 
   #countDecimals(num) {

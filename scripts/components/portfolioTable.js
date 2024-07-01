@@ -4,6 +4,9 @@ class PortfolioTable {
   renderAssets(portfolio) {
     const tableBody = document.querySelector('.js-table-body');
 
+    // Reset tableBody DOM
+    tableBody.innerHTML = '';
+
     portfolio.assets.forEach(asset => {
       const profitLossClass = format.profitLossClass(asset.profitLoss);
       tableBody.innerHTML += this.#generateAssetRow(asset, profitLossClass);

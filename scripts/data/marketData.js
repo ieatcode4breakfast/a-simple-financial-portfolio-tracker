@@ -1,25 +1,31 @@
 import storage from '../utils/storage.js';
 
+const API_KEY = 'c71cce3ac1msh421962764be7fa5p1e673djsnb85e61fa2cb8';
+
 const marketData = {
   stored: storage.get('marketData') || [],
 
   get: async function(ticker) {
     try {
-      const url = `https://real-time-finance-data.p.rapidapi.com/stock-quote?symbol=${ticker}%3ANASDAQ&language=en`;
+      const url = `https://yahoo-finance127.p.rapidapi.com/price/${ticker}`;
       const options = {
         method: 'GET',
         headers: {
-          'x-rapidapi-key': '9672bea8b6msh08311a0bf49ad01p1b108ajsn852635995062',
-          'x-rapidapi-host': 'real-time-finance-data.p.rapidapi.com'
+          'x-rapidapi-key': API_KEY,
+          'x-rapidapi-host': 'yahoo-finance127.p.rapidapi.com'
         }
       };
-  
-      const response = await fetch(url, options);
-      const result = await response.json();
-      const name = result.data.name;
-      const lastPrice =  result.data.price;
 
-      this.data.push({ ticker, name, lastPrice});
+      const response = await fetch(url, options);
+      const result = await response.json();     
+      const name = result.longName || result.longName;
+      const lastPrice = result.regularMarketPrice.raw;
+
+      // Filter out current ticker from stored ata if already existing
+      const filteredData = this.removeExisting(ticker, this.stored); 
+
+      filteredData.push({ ticker, name, lastPrice});
+      this.stored = filteredData;
       storage.set('marketData', this.stored);
       console.log(storage.get('marketData'));
     } catch (error) {
@@ -27,8 +33,13 @@ const marketData = {
     }
   },
 
-  searchStored: function() {
+  removeExisting: function(ticker, data) {
+    // If ticker data has been stored previously, filter it out
+    return data.filter(asset => asset.ticker !== ticker);
+  },
 
+  search: function(ticker) {
+    return this.stored.find(asset => asset.ticker === ticker);
   }
 };
 

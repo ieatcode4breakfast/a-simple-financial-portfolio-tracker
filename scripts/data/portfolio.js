@@ -1,3 +1,5 @@
+import storage from '../utils/storage.js';
+
 class Portfolio {
   assets;
   totalInvested;
@@ -9,13 +11,21 @@ class Portfolio {
   #assetsTotalValue;
 
   constructor() {
-    this.assets = [];
-    this.cashBalance = 121.45;
-
-    this.calculateTotals();
+    const portfolioData = storage.get('portfolioData') || {};
+    this.assets = portfolioData.assets || [];
+    this.cashBalance = portfolioData.cashBalance || 121.45;
+    
+    this.#calculateTotals();
   }
 
-  calculateTotals() {
+  update(asset) {
+    this.assets.push(asset);
+    this.#calculateTotals();
+    storage.set('portfolioData', this);
+    console.log(storage.get('portfolioData'));
+  }
+
+  #calculateTotals() {
     this.#resetTotals();
 
     this.assets.forEach((asset, index) => {

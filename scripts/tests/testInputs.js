@@ -1,6 +1,4 @@
 import Asset from '../data/asset.js';
-import { portfolio, portfolioTable, summary } from '../index.js';
-import marketData from '../data/marketData.js';
 
 export const testInputs = [
   {
@@ -107,21 +105,18 @@ export const testInputs = [
   }
 ];
 
-async function submitAssetTest(input) {
+export async function submitTestInput(portfolio, marketData, portfolioTable, summary) {
+  const input = testInputs[portfolio.assets.length];
+  await marketData.get(input.ticker);
+
   const asset = new Asset(input);
-  await asset.processAssetData();
-  portfolio.assets.push(asset);
-  portfolio.calculateTotals();
+  asset.processAssetData();
+
   console.log(portfolio);
+  console.log(asset);
+
+  portfolio.update(asset);
+
   portfolioTable.renderAssets(portfolio);
   summary.render(portfolio);
 }
-
-export async function submitTestInput(input) {
-  console.log(portfolio);
-}
-
-document.querySelector('.js-add-asset')
-  .addEventListener('click', async () => {
-    submitTestInput();
-  });
