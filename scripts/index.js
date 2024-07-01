@@ -8,3 +8,5 @@ export const summary = new Summary;
 
 portfolioTable.renderAssets(portfolio);
 summary.render(portfolio);
+
+console.log(portfolio);

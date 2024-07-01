@@ -10,13 +10,9 @@ class Portfolio {
 
   constructor() {
     this.assets = [];
-    this.totalInvested = 0;
-    this.totalProfitLoss = 0;
-    this.totalProfitLossPct = 0;
-    this.cashBalance = 0;
-    this.cashBalancePct = 0;
-    this.totalPortfolioValue = 0;
-    this.#assetsTotalValue = 0;
+    this.cashBalance = 121.45;
+
+    this.calculateTotals();
   }
 
   calculateTotals() {
@@ -31,6 +27,7 @@ class Portfolio {
 
     this.totalPortfolioValue = this.#assetsTotalValue + this.cashBalance;
     this.totalProfitLossPct = this.#assetsTotalValue === 0 ? 0 : this.totalProfitLoss / (this.#assetsTotalValue + this.cashBalance);
+    this.cashBalancePct = this.#assetsTotalValue === 0 ? 0 : this.cashBalancePct / this.totalPortfolioValue;
 
     this.#calculateAssetPct();
   }

@@ -31,6 +31,7 @@ class PortfolioTable {
   }
 
   #generateCashRow(pct, balance) {
+
     return `
     <tr class="cash-row">
       <td>Cash</td>
