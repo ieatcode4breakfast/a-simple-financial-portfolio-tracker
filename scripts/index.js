@@ -6,9 +6,9 @@ import { submitTestInput } from './tests/testInputs.js';
 
 const portfolio = new Portfolio();
 const portfolioTable = new PortfolioTable;
-const summary = new Summary;
+export const summary = new Summary;
 
-portfolioTable.renderAssets(portfolio);
+portfolioTable.renderAssets(portfolio, summary);
 summary.render(portfolio);
 
 document.querySelector('.js-add-asset')

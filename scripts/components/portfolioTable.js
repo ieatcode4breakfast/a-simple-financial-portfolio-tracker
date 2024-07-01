@@ -1,4 +1,5 @@
 import format from './format.js';
+import { summary } from '../index.js';
 
 class PortfolioTable {
   renderAssets(portfolio) {
@@ -13,11 +14,21 @@ class PortfolioTable {
     })
 
     tableBody.innerHTML += this.#generateCashRow(portfolio.cashBalancePct, portfolio.cashBalance);
+
+    document.querySelectorAll('.js-remove-icon')
+      .forEach(icon => {
+        icon.addEventListener('click', () => {
+          const { assetId } = icon.dataset;
+          portfolio.removeAsset(assetId);
+          this.renderAssets(portfolio);
+          summary.render(portfolio);
+        });
+      });
   }
   
   #generateAssetRow(asset, profitLossClass) {
     return `
-      <tr data-asset-id="${asset.id}">
+      <tr>
         <td class="ticker">${asset.ticker}</td>
         <td class="asset-name">${asset.name}</td>
         <td class="asset-type">${asset.type}</td>
@@ -29,7 +40,9 @@ class PortfolioTable {
         <td class="last-price">${format.dollars(asset.lastPrice, asset.lastPriceDecimals)}</td>
         <td class="profit-loss ${profitLossClass}">${format.profitLoss(asset.profitLoss)}</td>
         <td class="profit-loss-pct ${profitLossClass}">${format.pct(asset.profitLossPct, true)}</td>
-        <td class="remove-position"><img src="icons/remove-icon.png" class="remove-icon"></td>
+        <td class="remove-position">
+          <img src="icons/remove-icon.png" class="remove-icon js-remove-icon" data-asset-id="${asset.id}">
+        </td>
       </tr>
     `;
   }

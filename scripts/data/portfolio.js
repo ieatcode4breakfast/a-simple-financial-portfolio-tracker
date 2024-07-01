@@ -18,16 +18,24 @@ class Portfolio {
     this.#calculateTotals();
   }
 
-  update(asset) {
+  addAsset(asset) {
     this.assets.push(asset);
-    this.#calculateTotals();
-    storage.set('portfolioData', this);
-    console.log(storage.get('portfolioData'));
+    this.update();
+  }
+
+  removeAsset(assetId) {
+    this.assets = this.assets.filter(asset => asset.id !== assetId);
+    this.update();
   }
 
   reset() {
     storage.remove('portfolioData');
     window.location.reload();
+  }
+
+  update() {
+    this.#calculateTotals();
+    storage.set('portfolioData', this);
   }
 
   #calculateTotals() {

@@ -108,15 +108,9 @@ export const testInputs = [
 export async function submitTestInput(portfolio, marketData, portfolioTable, summary) {
   const input = testInputs[portfolio.assets.length];
   await marketData.get(input.ticker);
-
   const asset = new Asset(input);
   asset.processAssetData();
-
-  console.log(portfolio);
-  console.log(asset);
-
-  portfolio.update(asset);
-
+  portfolio.addAsset(asset);
   portfolioTable.renderAssets(portfolio);
   summary.render(portfolio);
 }

@@ -63,6 +63,7 @@
   width: 1.5rem;
   cursor: pointer;
   transition: filter 0.2s ease;
+  margin: 0 1rem;
 }
 
 .remove-icon:hover {

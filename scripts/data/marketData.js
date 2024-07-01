@@ -1,6 +1,6 @@
 import storage from '../utils/storage.js';
 
-const API_KEY = 'dba43241c4msh36d58bdf3f8635bp1cc051jsnf030d478617d';
+const API_KEY = 'fd1342d6d7msh3c84b13bab900bcp13a917jsnd53a2437b57f';
 
 const marketData = {
   stored: storage.get('marketData') || [],
@@ -27,7 +27,6 @@ const marketData = {
       filteredData.push({ ticker, name, lastPrice});
       this.stored = filteredData;
       storage.set('marketData', this.stored);
-      console.log(storage.get('marketData'));
     } catch (error) {
       console.error(`An error occured while retrieving market data for ticker symbol ${ticker}`, error);
     }
