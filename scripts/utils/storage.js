@@ -6,6 +6,10 @@ const storage = {
   get: function(key) {
     const data = JSON.parse(window.localStorage.getItem(key));
     return data;
+  },
+
+  remove: function(key) {
+    localStorage.removeItem(key);
   }
 }
 

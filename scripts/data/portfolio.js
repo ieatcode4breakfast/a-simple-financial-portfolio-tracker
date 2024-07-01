@@ -14,7 +14,7 @@ class Portfolio {
     const portfolioData = storage.get('portfolioData') || {};
     this.assets = portfolioData.assets || [];
     this.cashBalance = portfolioData.cashBalance || 121.45;
-    
+
     this.#calculateTotals();
   }
 
@@ -23,6 +23,11 @@ class Portfolio {
     this.#calculateTotals();
     storage.set('portfolioData', this);
     console.log(storage.get('portfolioData'));
+  }
+
+  reset() {
+    storage.remove('portfolioData');
+    window.location.reload();
   }
 
   #calculateTotals() {
