@@ -17,7 +17,6 @@ class Summary {
 
   render(portfolio) {
     const profitLossClass = format.profitLossClass(portfolio.totalProfitLoss);
-
     this.#totalInvestedCell.innerText = format.dollars(portfolio.totalInvested);
     this.#unrealizedPnlCell.classList.add(`${profitLossClass}`);
     this.#unrealizedPnlCell.innerText = format.profitLoss(portfolio.totalProfitLoss);

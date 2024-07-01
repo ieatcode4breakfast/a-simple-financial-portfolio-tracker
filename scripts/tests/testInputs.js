@@ -1,5 +1,6 @@
 import Asset from '../data/asset.js';
 import { portfolio, portfolioTable, summary } from '../index.js';
+import marketData from '../data/marketData.js';
 
 export const testInput1 = {
   type: 'Crypto',
@@ -125,28 +126,16 @@ async function submitAssetTest(input) {
   await asset.processAssetData();
   portfolio.assets.push(asset);
   portfolio.calculateTotals();
-}
-
-(async () => {
-  await submitAssetTest(testInput1);
-  await submitAssetTest(testInput2);
-  await submitAssetTest(testInput3);
-  await submitAssetTest(testInput4);
-  await submitAssetTest(testInput5);
-  await submitAssetTest(testInput6);
-  await submitAssetTest(testInput7);
-  await submitAssetTest(testInput8);
-  await submitAssetTest(testInput9);
-  await submitAssetTest(testInput10);
-  await submitAssetTest(testInput11);
-  await submitAssetTest(testInput12);
-  await submitAssetTest(testInput13);
-  await submitAssetTest(testInput14);
-  await submitAssetTest(testInput15);
-  await submitAssetTest(testInput16);
-  await submitAssetTest(testInput17);
-  
   console.log(portfolio);
   portfolioTable.renderAssets(portfolio);
   summary.render(portfolio);
-})();
+}
+
+export async function submitTestInput(input) {
+  console.log('clicked');
+}
+
+document.querySelector('.js-add-asset')
+  .addEventListener('click', () => {
+    console.log('clicked');
+  });

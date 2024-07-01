@@ -6,6 +6,11 @@ const format = {
 
   profitLoss: function(num) {
     const numAbsolute = Math.abs(num).toFixed(2);
+
+    if (num === 0) {
+      return `$${0}`;
+    }
+
     return num > 0 ? `+$${numAbsolute}` : `-$${numAbsolute}`;
   },
 
@@ -28,7 +33,7 @@ const format = {
       return 'js-negative-number';
   
     } else {
-      return '';
+      return 'js-zero';
     }
   }
 }

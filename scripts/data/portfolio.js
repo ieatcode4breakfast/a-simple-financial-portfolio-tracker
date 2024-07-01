@@ -14,6 +14,7 @@ class Portfolio {
     this.totalProfitLoss = 0;
     this.totalProfitLossPct = 0;
     this.cashBalance = 0;
+    this.cashBalancePct = 0;
     this.totalPortfolioValue = 0;
     this.#assetsTotalValue = 0;
   }
