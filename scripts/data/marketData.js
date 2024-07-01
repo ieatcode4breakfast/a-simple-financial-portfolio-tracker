@@ -16,6 +16,10 @@ const marketData = {
         }
       };
 
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+
       const response = await fetch(url, options);
       const result = await response.json();     
       const name = result.longName || result.longName;
