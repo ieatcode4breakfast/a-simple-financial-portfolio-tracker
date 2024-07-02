@@ -5,11 +5,13 @@
   --accent-color: rgb(45, 45, 45);
   --primary-text-color: rgb(255, 255, 255);
   --portfolio-cell-text-color: rgb(0, 0, 0);
-  --cell-odd: rgb(225, 225, 225);
-  --cell-even: rgb(255, 255, 255);
+  --row-odd: rgb(225, 225, 225);
+  --row-even: rgb(255, 255, 255);
+  --row-hover: rgb(175, 175, 175);
   --positive: rgb(24, 134, 24);
   --negative: rgb(255, 79, 79);
   --portfolio-option-active: rgb(40, 40, 40);
+  --tooltip-background: rgb(55, 55, 55);
 }
 
 body {
@@ -17,6 +19,7 @@ body {
   font-size: 16px;
   background-color: var(--background-color);
   color: var(--primary-text-color);
+  user-select: none;
 }
 
 body, h1, h2, h3 {

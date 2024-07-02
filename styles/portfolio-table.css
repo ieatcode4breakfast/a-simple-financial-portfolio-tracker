@@ -1,10 +1,12 @@
 .portfolio-table {
   width: 100%;
   border-collapse: collapse;
+  margin-bottom: 1rem;
+  cursor: pointer;
 }
 
 .portfolio-table th {
-  color: rgb(255, 255, 255);
+  color: var(--primary-text-color);
   background-color: var(--accent-color);
   border-bottom: 2px solid rgb(255, 255, 255);
 }
@@ -29,15 +31,24 @@
 
 /* Alternate the background color of every row to visualize the row better */
 .portfolio-table tr:nth-child(odd) {
-  background-color: var(--cell-odd);
+  background-color: var(--row-odd);
 }
 
 .portfolio-table tr:nth-child(even) {
-  background-color: var(--cell-even);
+  background-color: var(--row-even);
 }
 
 .portfolio-table td {
   color: var(--portfolio-cell-text-color);
+  padding: 0.75rem 0.5rem;
+}
+
+.portfolio-table tr {
+  transition: background-color 0.2s ease;
+}
+
+.portfolio-table tr:hover {
+  background-color: var(--row-hover);
 }
 
 .pct-of-portfolio,
@@ -59,11 +70,16 @@
   font-weight: 600;
 }
 
-.remove-icon {
+.remove-icon-container {
+  position: relative;
   width: 1.5rem;
+  margin: 0 0.75rem;
+}
+
+.remove-icon {
+  width: 100%;
   cursor: pointer;
   transition: filter 0.2s ease;
-  margin: 0 1rem;
 }
 
 .remove-icon:hover {
@@ -72,4 +88,23 @@
 
 .remove-icon:active {
   filter: brightness(50%);
+}
+
+.tooltip {
+  position: absolute;
+  white-space: nowrap;
+  opacity: 0;
+  left: -9.5rem;
+  top: -3.2rem;
+  transition: opacity 0.2s ease;
+  background-color: var(--tooltip-background);
+  color: var(--primary-text-color);
+  padding: 1rem 1.5rem;
+  z-index: 100;
+  border-radius: 1.2rem 1.2rem 0 1.2rem;
+  pointer-events: none;
+}
+
+.remove-icon-container:hover .tooltip {
+  opacity: 1;
 }

@@ -40,8 +40,11 @@ class PortfolioTable {
       <td class="last-price">${format.dollars(asset.lastPrice, asset.lastPriceDecimals)}</td>
       <td class="profit-loss ${profitLossClass}">${format.profitLoss(asset.profitLoss)}</td>
       <td class="profit-loss-pct ${profitLossClass}">${format.pct(asset.profitLossPct, true)}</td>
-      <td class="remove-position">
-        <img src="icons/remove-icon.png" class="remove-icon js-remove-icon" data-asset-id="${asset.id}">
+      <td>
+        <div class="remove-icon-container">
+          <img src="icons/remove-icon.png" class="remove-icon js-remove-icon" data-asset-id="${asset.id}">
+          <div class="tooltip">Remove asset</div>
+        </div>
       </td>
     `;
 
