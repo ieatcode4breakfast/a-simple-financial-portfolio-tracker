@@ -16,6 +16,11 @@ document.querySelector('.js-add-asset')
     submitTestInput(portfolio, marketData, portfolioTable, summary);
   });
 
+document.querySelector('.js-edit-cash')
+  .addEventListener('click', () => {
+    
+  });
+
 document.querySelector('.js-reset-portfolio')
   .addEventListener('click', () => {
     portfolio.reset();
