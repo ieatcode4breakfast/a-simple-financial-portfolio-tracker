@@ -10,7 +10,7 @@ class PortfolioTable {
 
     portfolio.assets.forEach(asset => {
       const profitLossClass = format.profitLossClass(asset.profitLoss);
-      tableBody.innerHTML += this.#generateAssetRow(asset, profitLossClass);
+      tableBody.appendChild(this.#generateAssetRow(asset, profitLossClass));
     })
 
     tableBody.innerHTML += this.#generateCashRow(portfolio.cashBalancePct, portfolio.cashBalance);
@@ -27,24 +27,25 @@ class PortfolioTable {
   }
   
   #generateAssetRow(asset, profitLossClass) {
-    return `
-      <tr>
-        <td class="ticker">${asset.ticker}</td>
-        <td class="asset-name">${asset.name}</td>
-        <td class="asset-type">${asset.type}</td>
-        <td class="pct-of-portfolio js-pct-of-portfolio">${format.pct(asset.pctOfPortfolio)}</td>
-        <td class="current-value">${format.dollars(asset.currentValue)}</td>
-        <td class="total-cost">${format.dollars(asset.totalCost)}</td>
-        <td class="shares">${asset.shares}</td>
-        <td class="average-price">${format.dollars(asset.averagePrice, asset.lastPriceDecimals)}</td>
-        <td class="last-price">${format.dollars(asset.lastPrice, asset.lastPriceDecimals)}</td>
-        <td class="profit-loss ${profitLossClass}">${format.profitLoss(asset.profitLoss)}</td>
-        <td class="profit-loss-pct ${profitLossClass}">${format.pct(asset.profitLossPct, true)}</td>
-        <td class="remove-position">
-          <img src="icons/remove-icon.png" class="remove-icon js-remove-icon" data-asset-id="${asset.id}">
-        </td>
-      </tr>
+    const row = document.createElement('tr');
+    row.innerHTML = `
+      <td class="ticker">${asset.ticker}</td>
+      <td class="asset-name">${asset.name}</td>
+      <td class="asset-type">${asset.type}</td>
+      <td class="pct-of-portfolio js-pct-of-portfolio">${format.pct(asset.pctOfPortfolio)}</td>
+      <td class="current-value">${format.dollars(asset.currentValue)}</td>
+      <td class="total-cost">${format.dollars(asset.totalCost)}</td>
+      <td class="shares">${asset.shares}</td>
+      <td class="average-price">${format.dollars(asset.averagePrice, asset.lastPriceDecimals)}</td>
+      <td class="last-price">${format.dollars(asset.lastPrice, asset.lastPriceDecimals)}</td>
+      <td class="profit-loss ${profitLossClass}">${format.profitLoss(asset.profitLoss)}</td>
+      <td class="profit-loss-pct ${profitLossClass}">${format.pct(asset.profitLossPct, true)}</td>
+      <td class="remove-position">
+        <img src="icons/remove-icon.png" class="remove-icon js-remove-icon" data-asset-id="${asset.id}">
+      </td>
     `;
+
+    return row;
   }
 
   #generateCashRow(pct, balance) {
