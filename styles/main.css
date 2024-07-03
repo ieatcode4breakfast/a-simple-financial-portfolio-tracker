@@ -10,7 +10,7 @@
   background-color: var(--accent-color);
   border-radius: 0 1rem 1rem 0;
   flex-direction: column;
-  margin-bottom: 1rem;
+  margin-bottom: 2rem;
 }
 
 .summary-title {
@@ -29,10 +29,7 @@
 
 .portfolio-options {
   display: flex;
-  justify-content: right;
-  margin-bottom: 0.5rem;
-  margin-right: 0.5rem;
-
+  margin-left: 0.5rem;
 }
 
 .portfolio-option {
@@ -44,6 +41,7 @@
   cursor: pointer;
   transition: background-color 0.1s ease;
   font-size: 0.85rem;
+  margin-bottom: 0.5rem;
 }
 
 .portfolio-option:hover {
@@ -57,4 +55,28 @@
 .option-icon {
   width: 1.75rem;
   margin-right: 0.5rem;
+}
+
+@media (max-width: 700px) {
+  .summary-container {
+    margin-bottom: 1rem;
+  }
+
+  .portfolio-options {
+    display: flex;
+    flex-direction: column;
+    margin-left: 0;
+  }
+
+  .portfolio-option {
+    background-color: var(--accent-color);
+    padding: 0.75rem 1rem;
+    margin-bottom: 0.75rem;
+    width: 17rem;
+    border-radius: 0 0.5rem 0.5rem 0;
+  }
+
+  .option-icon {
+    display: none;
+  }
 }

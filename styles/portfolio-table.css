@@ -19,7 +19,7 @@
 
 .portfolio-table th:first-child,
 .portfolio-table td:first-child {
-  padding: 0.5rem;
+  padding-left: 1rem;
   position: sticky;
   left: 0;
   font-weight: 600;
