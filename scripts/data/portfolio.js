@@ -13,7 +13,7 @@ class Portfolio {
   constructor() {
     const portfolioData = storage.get('portfolioData') || {};
     this.assets = portfolioData.assets || [];
-    this.cashBalance = portfolioData.cashBalance || 121.45;
+    this.cashBalance = portfolioData.cashBalance || 0;
 
     this.#calculateTotals();
   }

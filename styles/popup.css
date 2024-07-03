@@ -2,11 +2,10 @@
   position: fixed;
   inset: 0;
   z-index: 15;
-  display: flex;
+  display: none;
   justify-content: center;
   align-items: center;
   background-color: rgba(0, 0, 0, 0.3);
-  display: none;
 }
 
 .popup-window {
