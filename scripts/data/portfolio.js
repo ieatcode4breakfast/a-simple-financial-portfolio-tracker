@@ -1,7 +1,7 @@
 import storage from '../utils/storage.js';
 
 class Portfolio {
-  assets;
+  assets; // Contains the assets that are added to the portfolio
   totalInvested;
   totalProfitLoss
   totalProfitLossPct;
@@ -39,10 +39,10 @@ class Portfolio {
   }
 
   #calculateTotals() {
-    this.#resetTotals();
+    this.#resetTotals(); // Reset totals prior to recalculating
 
     this.assets.forEach((asset, index) => {
-      asset.id = `asset-${index + 1}`;
+      asset.id = `asset-${index + 1}`; // The asset ID will be the basis for removing assets
       this.totalInvested += asset.totalCost;
       this.#assetsTotalValue += asset.currentValue;
       this.totalProfitLoss += asset.profitLoss;
@@ -61,6 +61,8 @@ class Portfolio {
     this.#assetsTotalValue = 0;
   }
 
+  // Calculates the % allocated to each asset
+  // This can only be performed after the total portfolio value has been determined
   #calculateAssetPct() {
     this.cashBalancePct = this.totalPortfolioValue === 0 ? 0 : this.cashBalance / this.totalPortfolioValue;
     this.assets.forEach(asset => {
