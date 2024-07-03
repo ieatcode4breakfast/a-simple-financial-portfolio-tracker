@@ -1,0 +1,71 @@
+.popup-section {
+  position: fixed;
+  inset: 0;
+  z-index: 15;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+.popup-window {
+  width: 95vw;
+  min-width: 19rem;
+  max-width: 30rem;
+  border-radius: 1rem;
+  overflow: hidden;
+}
+
+.popup-header {
+  text-align: center;
+  background-color: var(--accent-color);
+  padding: 0.5rem;
+}
+
+.popup-body {
+  background-color: var(--primary-text-color);
+  color: var(--portfolio-cell-text-color);
+  padding: 1rem;
+}
+
+.popup-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.buttons-section {
+  display: flex;
+  margin-top: 0.5rem;
+  justify-content: center;
+}
+
+.popup-body button {
+  border: none;
+  font-size: 1rem;
+  width: 5rem;
+  padding: 0.5rem;
+  background-color: var(--accent-color);
+  color: var(--primary-text-color);
+  border-radius: 0.5rem;
+  cursor: pointer;
+  margin: 0.1rem;
+}
+
+.popup-body button:hover {
+  background-color: var(--popup-button-hover);
+}
+
+.cash-input {
+  padding: 0.5rem 1rem;
+  width: 15rem;
+  text-align: right;
+  border-radius: 0.3rem;
+  border: 1px solid var(--row-hover);
+  outline: none;
+  font-size: 1rem;
+}
+
+.cash-input:focus {
+  border-color: var(--popup-button-hover);
+}

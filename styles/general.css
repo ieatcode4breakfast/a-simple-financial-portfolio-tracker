@@ -12,11 +12,11 @@
   --negative: rgb(255, 79, 79);
   --portfolio-option-active: rgb(40, 40, 40);
   --tooltip-background: rgb(55, 55, 55);
+  --popup-button-hover: rgb(75, 75, 75);
 }
 
 body {
   font-family: "Open Sans", sans-serif, Arial;
-  font-size: 16px;
   background-color: var(--background-color);
   color: var(--primary-text-color);
   user-select: none;
@@ -30,8 +30,13 @@ h1 {
   font-size: 2rem;
 }
 
-h3 {
+h2 {
   font-size: 1.2rem;
+  font-weight: 600;
+}
+
+h3 {
+  font-size: 1rem;
   font-weight: 600;
 }
 

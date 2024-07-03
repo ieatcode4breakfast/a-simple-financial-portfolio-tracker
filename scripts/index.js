@@ -2,6 +2,7 @@ import Portfolio from './data/portfolio.js';
 import PortfolioTable from './components/portfolioTable.js';
 import Summary from './components/summary.js';
 import marketData from './data/marketData.js';
+import Popup from './components/popup.js';
 import { submitTestInput } from './tests/testInputs.js';
 
 const portfolio = new Portfolio();
@@ -18,7 +19,7 @@ document.querySelector('.js-add-asset')
 
 document.querySelector('.js-edit-cash')
   .addEventListener('click', () => {
-    
+
   });
 
 document.querySelector('.js-reset-portfolio')

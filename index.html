@@ -14,6 +14,7 @@
   <link rel="stylesheet" href="styles/header.css">
   <link rel="stylesheet" href="styles/main.css">
   <link rel="stylesheet" href="styles/portfolio-table.css">
+  <link rel="stylesheet" href="styles/popup.css">
 </head>
 <body>
   <header class="header">
@@ -22,7 +23,7 @@
 
   <main>
     <div class="summary-container">
-      <h3 class="summary-title">Summary</h3>
+      <h2 class="summary-title">Summary</h2>
       <table class="summary-table js-summary-table">
         <tr>
           <td>Total Invested</td>
@@ -86,7 +87,23 @@
       </table>
     </div>
   </main>
-
+  <div class="popup-section">
+    <div class="popup-window">
+      <div class="popup-header">
+        <h3>Edit Cash Balance</h3>
+      </div>
+      <div class="popup-body">
+        <div class="popup-content">
+          Enter cash balance:
+          <input class="cash-input" type="text" placeholder="$">
+        </div>
+        <div class="buttons-section">
+          <button>Submit</button>
+          <button>Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
   <script type="module" src="scripts/index.js"></script>
 </body>
 </html>
