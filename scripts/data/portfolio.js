@@ -8,12 +8,15 @@ class Portfolio {
   cashBalance;
   cashBalancePct;
   totalPortfolioValue;
+  lastPropertySorted;
+  sortAscending;
   #assetsTotalValue;
 
   constructor() {
     const portfolioData = storage.get('portfolioData') || {};
     this.assets = portfolioData.assets || [];
     this.cashBalance = portfolioData.cashBalance || 0;
+    this.sortAscending = false;
 
     this.#calculateTotals();
   }
@@ -36,6 +39,36 @@ class Portfolio {
   update() {
     this.#calculateTotals();
     storage.set('portfolioData', this);
+  }
+
+  sortAssets(sortBy) {
+    if (this.assets.length === 0) {
+      return;
+    }
+
+    const sortStrings = isNaN(this.assets[0][sortBy]); // Determine if the values being sorted are not numbers
+
+    // Triggers when a new property is being sorted
+    // If strings are being sorted, the default is to sort by ascending order
+    // If numbers are being sorted, the default is to sort by descending order
+    if (this.lastPropertySorted !== sortBy) {
+      this.sortAscending = sortStrings; // if sortStrings is true, then sortAscending is true
+    }
+    
+    if (sortStrings) {
+      this.assets = this.sortAscending
+        ? this.assets.sort((a, b) => a[sortBy].localeCompare(b[sortBy]))
+        : this.assets.sort((a, b) => b[sortBy].localeCompare(a[sortBy]));
+      console.log(this.assets);
+    } else {
+      this.assets = this.sortAscending
+        ? this.assets.sort((a, b) => a[sortBy] - b[sortBy])
+        : this.assets.sort((a, b) => b[sortBy] - a[sortBy]);
+      console.log(this.assets);
+    }
+
+    this.sortAscending = !this.sortAscending;
+    this.lastPropertySorted = sortBy;
   }
 
   #calculateTotals() {

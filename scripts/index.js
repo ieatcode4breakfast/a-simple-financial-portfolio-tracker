@@ -27,3 +27,13 @@ document.querySelector('.js-reset-portfolio')
   .addEventListener('click', () => {
     new ResetPorftolio(portfolio);
   });
+
+document.querySelectorAll('.js-portfolio-table th:not(.js-remove-icons-header)')
+  .forEach(header => {
+    header.addEventListener('click', () => {
+      // Determines which property to sort by such as asset ticker, name, type, and so on...
+      const { sortBy } = header.dataset;
+      portfolio.sortAssets(sortBy);
+      portfolioTable.renderAssets(portfolio, summary);
+    });
+  });
