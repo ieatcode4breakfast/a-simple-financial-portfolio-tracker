@@ -16,14 +16,17 @@ class Summary {
   }
 
   render(portfolio) {
-    const profitLossClass = format.profitLossClass(portfolio.totalProfitLoss);
     this.#totalInvestedCell.innerText = format.dollars(portfolio.totalInvested);
-    this.#unrealizedPnlCell.classList.add(`${profitLossClass}`);
     this.#unrealizedPnlCell.innerText = format.profitLoss(portfolio.totalProfitLoss);
-    this.#unrealizedPnlPctCell.classList.add(`${profitLossClass}`);
     this.#unrealizedPnlPctCell.innerText = format.pct(portfolio.totalProfitLossPct, true);
     this.#cashCell.innerText = format.dollars(portfolio.cashBalance);
     this.#portfolioValueCell.innerText = format.dollars(portfolio.totalPortfolioValue);
+
+    // Format unrealized profit or loss with green or red
+    this.#unrealizedPnlCell.classList.toggle('js-negative-number', portfolio.totalProfitLoss < 0);
+    this.#unrealizedPnlCell.classList.toggle('js-positive-number', portfolio.totalProfitLoss > 0);
+    this.#unrealizedPnlPctCell.classList.toggle('js-negative-number', portfolio.totalProfitLoss < 0);
+    this.#unrealizedPnlPctCell.classList.toggle('js-positive-number', portfolio.totalProfitLoss > 0);
   }
 }
 

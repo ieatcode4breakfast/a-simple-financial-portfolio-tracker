@@ -33,7 +33,7 @@ const format = {
       return 'js-negative-number';
   
     } else {
-      return 'js-zero';
+      return '';
     }
   }
 }
