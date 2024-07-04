@@ -1,5 +1,6 @@
 import format from './format.js';
 import { summary } from '../index.js';
+import EditCash from './popups/editCashPopup.js';
 
 class PortfolioTable {
   renderAssets(portfolio) {
@@ -23,6 +24,11 @@ class PortfolioTable {
           this.renderAssets(portfolio);
           summary.render(portfolio);
         });
+      });
+
+    document.querySelector('.js-cash-row')
+      .addEventListener('click', () => {
+        new EditCash;
       });
   }
   
@@ -54,7 +60,7 @@ class PortfolioTable {
   #generateCashRow(pct, balance) {
 
     return `
-    <tr class="cash-row">
+    <tr class="cash-row js-cash-row">
       <td>Cash</td>
       <td></td>
       <td></td>
