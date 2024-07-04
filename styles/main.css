@@ -5,7 +5,8 @@
 
 .summary-container {
   display: flex;
-  width: 15rem;
+  width: fit-content;
+  min-width: 15rem;
   padding: 1rem 2rem 1.2rem 2rem;
   background-color: var(--accent-color);
   border-radius: 0 1rem 1rem 0;
