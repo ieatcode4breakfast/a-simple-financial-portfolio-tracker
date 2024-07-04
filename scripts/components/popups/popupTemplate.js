@@ -16,6 +16,15 @@ class Popup {
     this.#display();
     this.#render();
   }
+  
+  close() {
+    this.#popupBody.innerHTML = '';
+    document.querySelector('.js-popup-section').style.display = "none";
+  }
+
+  action() {
+    console.log('Nothing happens.');
+  }
 
   #display() {
     document.querySelector('.js-popup-section').style.display = "flex";
@@ -33,12 +42,11 @@ class Popup {
     document.querySelector('.js-action-button')
       .addEventListener('click', () => {
         this.action();
-        this.#close();
       });
 
     document.querySelector('.js-cancel-button')
       .addEventListener('click', () => {
-        this.#close();
+        this.close();
       });
   }
 
@@ -46,15 +54,6 @@ class Popup {
     document.querySelector('.js-popup-header').innerText = this.#headerText;
     document.querySelector('.js-popup-content').innerHTML = this.#content;
     document.querySelector('.js-action-button').innerText = this.#actionText;
-  }
-
-  #close() {
-    this.#popupBody.innerHTML = '';
-    document.querySelector('.js-popup-section').style.display = "none";
-  }
-
-  action() {
-    console.log('Nothing happens.');
   }
 }
 

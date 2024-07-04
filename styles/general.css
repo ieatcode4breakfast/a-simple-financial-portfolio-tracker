@@ -10,6 +10,7 @@
   --row-hover: rgb(175, 175, 175);
   --positive: rgb(24, 134, 24);
   --negative: rgb(255, 79, 79);
+  --error: rgb(255, 79, 79);
   --portfolio-option-active: rgb(40, 40, 40);
   --tooltip-background: rgb(55, 55, 55);
   --popup-button-hover: rgb(75, 75, 75);
@@ -54,6 +55,11 @@ h3 {
 
 .icon-color {
   background-color: var(--accent-color);
+}
+
+.error-message {
+  color: var(--error);
+  display: none;
 }
 
 @media (max-width: 700px) {

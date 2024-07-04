@@ -1,5 +1,6 @@
 import Popup from './popupTemplate.js';
 import { portfolio , portfolioTable, summary } from '../../index.js';
+import valid from '../../utils/validate.js';
 
 class EditCash extends Popup {
   cashInput;
@@ -11,6 +12,7 @@ class EditCash extends Popup {
       `
         Enter cash balance:
         <input class="cash-input js-cash-input" type="text" placeholder="$">
+        <div class="error-message js-error-message">Invalid input.</div>
       `,
       'Submit'
     );
@@ -20,10 +22,17 @@ class EditCash extends Popup {
   }
 
   action() {
+    if (!valid.cashInput(this.cashInput.value)) {
+      document.querySelector('.js-error-message').style.display = 'initial';
+      this.cashInput.focus();
+      return;
+    }
+
     portfolio.cashBalance = Number(this.cashInput.value);
     portfolio.update();
     portfolioTable.renderAssets(portfolio);
     summary.render(portfolio);
+    this.close();
   }
 }
 

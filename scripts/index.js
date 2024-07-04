@@ -3,6 +3,7 @@ import PortfolioTable from './components/portfolioTable.js';
 import Summary from './components/summary.js';
 import marketData from './data/marketData.js';
 import EditCash from './components/popups/editCashPopup.js';
+import { ResetPorftolio } from './components/popups/prompts.js';
 import { submitTestInput } from './tests/testInputs.js';
 
 export const portfolio = new Portfolio();
@@ -24,5 +25,5 @@ document.querySelector('.js-edit-cash')
 
 document.querySelector('.js-reset-portfolio')
   .addEventListener('click', () => {
-    portfolio.reset();
+    new ResetPorftolio(portfolio);
   });
