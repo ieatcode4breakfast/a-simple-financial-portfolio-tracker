@@ -12,7 +12,9 @@ class PortfolioTable {
     portfolio.assets.forEach(asset => {
       const profitLossClass = format.profitLossClass(asset.profitLoss);
       tableBody.appendChild(this.#generateAssetRow(asset, profitLossClass));
-    })
+    });
+
+    this.#renderSortIndicator(portfolio);
 
     tableBody.innerHTML += this.#generateCashRow(portfolio.cashBalancePct, portfolio.cashBalance);
 
@@ -55,6 +57,17 @@ class PortfolioTable {
     `;
 
     return row;
+  }
+  
+  #renderSortIndicator(portfolio) {
+    document.querySelectorAll('.portfolio-table th').forEach(header => {
+      header.classList.remove('js-arrow-down', 'js-arrow-up');
+    });
+
+    if (portfolio.lastPropertySortedHeader) {
+      portfolio.lastPropertySortedHeader.classList.toggle('js-arrow-down', portfolio.sortAscending);
+      portfolio.lastPropertySortedHeader.classList.toggle('js-arrow-up', !portfolio.sortAscending);
+    }
   }
 
   #generateCashRow(pct, balance) {

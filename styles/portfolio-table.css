@@ -108,3 +108,11 @@
 .remove-icon-container:hover .tooltip {
   opacity: 1;
 }
+
+.js-arrow-up::after {
+  content: " ▲";
+}
+
+.js-arrow-down::after {
+  content: " ▼";
+}

@@ -9,6 +9,7 @@ class Portfolio {
   cashBalancePct;
   totalPortfolioValue;
   lastPropertySorted;
+  lastPropertySortedHeader;
   sortAscending;
   #assetsTotalValue;
 
@@ -41,10 +42,13 @@ class Portfolio {
     storage.set('portfolioData', this);
   }
 
-  sortAssets(sortBy) {
+  sortAssets(header) {
     if (this.assets.length === 0) {
       return;
     }
+
+    // Determines which property to sort by such as asset ticker, name, type, and so on...
+    const { sortBy } = header.dataset;
 
     const sortStrings = isNaN(this.assets[0][sortBy]); // Determine if the values being sorted are not numbers
 
@@ -59,16 +63,15 @@ class Portfolio {
       this.assets = this.sortAscending
         ? this.assets.sort((a, b) => a[sortBy].localeCompare(b[sortBy]))
         : this.assets.sort((a, b) => b[sortBy].localeCompare(a[sortBy]));
-      console.log(this.assets);
     } else {
       this.assets = this.sortAscending
         ? this.assets.sort((a, b) => a[sortBy] - b[sortBy])
         : this.assets.sort((a, b) => b[sortBy] - a[sortBy]);
-      console.log(this.assets);
     }
 
     this.sortAscending = !this.sortAscending;
     this.lastPropertySorted = sortBy;
+    this.lastPropertySortedHeader = header;
   }
 
   #calculateTotals() {
