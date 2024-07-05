@@ -18,15 +18,17 @@ const marketData = {
 
       const response = await fetch(url, options);
       const result = await response.json();     
-      const name = result.longName || result.longName;
+      const name = result.shortName || result.longName;
+      const type = result.typeDisp;
       const lastPrice = result.regularMarketPrice.raw;
 
       // Filter out current ticker from stored ata if already existing
       const filteredData = this.removeExisting(ticker, this.stored); 
 
-      filteredData.push({ ticker, name, lastPrice});
+      filteredData.push({ ticker, name, type, lastPrice});
       this.stored = filteredData;
       storage.set('marketData', this.stored);
+      console.log(result);
     } catch (error) {
       console.error(`An error occured while retrieving market data for ticker symbol ${ticker}`, error);
     }

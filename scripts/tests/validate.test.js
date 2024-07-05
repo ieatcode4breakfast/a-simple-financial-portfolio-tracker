@@ -39,3 +39,45 @@ test('String with floating point number returns true', () => {
 test('NaN returns false', () => {
   expect(valid.cashInput(NaN)).toBe(false);
 });
+
+// Number input
+
+test('Zero returns false', () => {
+  expect(valid.numberInput(0)).toBe(false);
+});
+
+test('Positive number returns true', () => {
+  expect(valid.numberInput(100)).toBe(true);
+});
+
+test('Negative number returns false', () => {
+  expect(valid.numberInput(-100)).toBe(false);
+});
+
+test('String number returns true', () => {
+  expect(valid.numberInput("100")).toBe(true);
+});
+
+test('String with letters returns false', () => {
+  expect(valid.numberInput("100abc")).toBe(false);
+});
+
+test('Empty string returns false', () => {
+  expect(valid.numberInput("")).toBe(false);
+});
+
+test('Undefined returns false', () => {
+  expect(valid.numberInput(undefined)).toBe(false);
+});
+
+test('Floating point number returns true', () => {
+  expect(valid.numberInput(100.50)).toBe(true);
+});
+
+test('String with floating point number returns true', () => {
+  expect(valid.numberInput("100.50")).toBe(true);
+});
+
+test('NaN returns false', () => {
+  expect(valid.numberInput(NaN)).toBe(false);
+});

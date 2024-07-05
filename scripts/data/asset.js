@@ -16,7 +16,6 @@ export class Asset {
   lastPriceDecimals;
   
   constructor(assetInput) {
-    this.type = assetInput.type;
     this.ticker = assetInput.ticker;
     this.totalCost = assetInput.totalCost;
     this.shares = assetInput.shares;
@@ -25,6 +24,7 @@ export class Asset {
   processAssetData() {
     const data = marketData.search(this.ticker);
     this.name = data.name;
+    this.type = data.type;
     this.lastPrice = data.lastPrice;
     this.currentValue = this.shares * this.lastPrice;
     this.averagePrice = this.totalCost / this.shares;

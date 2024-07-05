@@ -14,6 +14,7 @@
   --portfolio-option-active: rgb(40, 40, 40);
   --tooltip-background: rgb(55, 55, 55);
   --popup-button-hover: rgb(75, 75, 75);
+  --input-error: rgb(255, 79, 79);
 }
 
 body {
@@ -41,6 +42,52 @@ h3 {
   font-weight: 600;
 }
 
+input {
+  padding: 0.5rem 1rem;
+  width: 13rem;
+  text-align: center;
+  border-radius: 0.3rem;
+  border: 1px solid var(--row-hover);
+  outline: none;
+  font-size: 1rem;
+}
+
+input::placeholder {
+  font-size: 0.8rem;
+}
+
+input:focus {
+  border-color: var(--popup-button-hover);
+}
+
+button {
+  border: none;
+  font-size: 1rem;
+  width: 5rem;
+  padding: 0.5rem;
+  background-color: var(--accent-color);
+  color: var(--primary-text-color);
+  border-radius: 0.5rem;
+  cursor: pointer;
+  margin: 0.1rem;
+}
+
+button:hover {
+  background-color: var(--popup-button-hover);
+}
+
+.buttons-section {
+  display: flex;
+  margin-top: 0.5rem;
+  justify-content: center;
+}
+
+.error-message {
+  color: var(--error);
+  display: none;
+  text-align: center;
+}
+
 .js-positive-number {
   color: var(--positive) !important;
 }
@@ -57,7 +104,6 @@ h3 {
   background-color: var(--accent-color);
 }
 
-.error-message {
-  color: var(--error);
-  display: none;
+.js-input-error {
+ border-color: rgb(255, 79, 79);;
 }

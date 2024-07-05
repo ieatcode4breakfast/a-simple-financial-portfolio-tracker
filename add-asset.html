@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Add an Asset</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="styles/general.css">
+  <link rel="stylesheet" href="styles/header.css">
+  <link rel="stylesheet" href="styles/add-asset.css">
+</head>
+<body>
+  <header class="header">
+    <h1 class="page-title">My Portfolio</h1>
+  </header>
+
+  <main>
+    <div class="add-asset-form-container">
+      <h3 class="add-asset-header">Add an asset</h3>
+      <form class="add-asset-form js-add-asset-form">
+        <div class="input-field-container">
+          <label for="add-asset-ticker">Ticker:</label>
+          <input type="text" class="ticker js-ticker" id="add-asset-ticker" placeholder="AAPL, NVDA, BTC-USD...">
+        </div>
+        <div class="input-field-container">
+          <label for="add-asset-shares">Shares:</label>
+          <input type="text" class="js-shares" id="add-asset-shares">
+        </div>
+        <div class="input-field-container">
+          <label for="add-asset-cost">Total Cost:</label>
+          <input type="text" class="js-total-cost" id="add-asset-cost" placeholder="$">
+        </div>
+        <span class="error-message js-error-message">Invalid input detected. Please review the fields and correct any invalid input.</span>
+        <div class="buttons-section">
+          <button type="submit">Submit</button>
+          <button type="button" class="js-cancel-button">Cancel</button>
+        </div>
+      </form>
+    </div>
+  </main>
+
+  <script type="module" src="scripts/addAsset.js"></script>
+</body>
+</html>
