@@ -18,6 +18,15 @@ class PortfolioTable {
 
     tableBody.innerHTML += this.#generateCashRow(portfolio.cashBalancePct, portfolio.cashBalance);
 
+    document.querySelectorAll('.js-edit')
+      .forEach(assetRow => {
+        assetRow.addEventListener('click', () => {
+          const { assetId } = assetRow.dataset;
+          portfolio.editAsset(assetId);
+          window.location.href = 'edit-asset.html';
+        });
+      });
+
     document.querySelectorAll('.js-remove-icon')
       .forEach(icon => {
         icon.addEventListener('click', () => {
@@ -36,6 +45,8 @@ class PortfolioTable {
   
   #generateAssetRow(asset, profitLossClass) {
     const row = document.createElement('tr');
+    row.setAttribute('data-asset-id', asset.id);
+    row.classList.add('js-edit');
     row.innerHTML = `
       <td class="ticker">${asset.ticker}</td>
       <td class="asset-name">${asset.name}</td>

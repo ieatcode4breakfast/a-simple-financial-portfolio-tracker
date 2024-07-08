@@ -15,7 +15,7 @@ summary.render(portfolio);
 
 document.querySelector('.js-add-asset')
   .addEventListener('click', () => {
-    window.location.href = './add-asset.html';
+    window.location.href = 'add-asset.html';
     //submitTestInput(portfolio, marketData, portfolioTable, summary);
   });
 

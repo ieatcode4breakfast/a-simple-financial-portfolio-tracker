@@ -88,6 +88,10 @@ button:hover {
   text-align: center;
 }
 
+.uneditable-input {
+  background-color: var(--row-odd);
+}
+
 .js-positive-number {
   color: var(--positive) !important;
 }
@@ -105,5 +109,5 @@ button:hover {
 }
 
 .js-input-error {
- border-color: rgb(255, 79, 79);;
+  border-color: rgb(255, 79, 79);;
 }

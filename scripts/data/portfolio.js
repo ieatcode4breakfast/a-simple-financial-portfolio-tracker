@@ -43,6 +43,10 @@ class Portfolio {
     storage.set('portfolioData', this);
   }
 
+  search(ticker) {
+    return this.assets.find(asset => asset.ticker === ticker);
+  }
+
   sortAssets(header) {
     if (this.assets.length === 0) {
       return;
@@ -73,6 +77,11 @@ class Portfolio {
     this.sortAscending = !this.sortAscending;
     this.lastPropertySorted = sortBy;
     this.lastPropertySortedHeader = header;
+  }
+
+  editAsset(assetId) {
+    const toEdit = this.assets.find(asset => asset.id === assetId);
+    storage.set('toEdit', toEdit);
   }
 
   #calculateTotals() {
