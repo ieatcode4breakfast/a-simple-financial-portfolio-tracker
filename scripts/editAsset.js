@@ -1,7 +1,7 @@
-import HandleAsset from './data/handleAsset.js';
+import AddAsset from './data/newAsset.js';
 import storage from './utils/storage.js';
 
-class EditAsset extends HandleAsset {
+class EditAsset extends AddAsset {
   #toEdit;
 
   constructor() {

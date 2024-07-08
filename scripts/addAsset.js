@@ -1,3 +1,3 @@
-import HandleAsset from './data/handleAsset.js';
+import AddAsset from './data/newAsset.js';
 
-new HandleAsset;
+new AddAsset;

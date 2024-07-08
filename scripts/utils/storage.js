@@ -4,7 +4,7 @@ const storage = {
   },
 
   get: function(key) {
-    const data = JSON.parse(window.localStorage.getItem(key));
+    const data = JSON.parse(localStorage.getItem(key));
     return data;
   },
 

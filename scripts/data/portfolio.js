@@ -8,17 +8,19 @@ class Portfolio {
   cashBalance;
   cashBalancePct;
   totalPortfolioValue;
-  lastPropertySorted;
+
   lastPropertySortedHeader;
   sortAscending;
   #assetsTotalValue;
 
   constructor() {
     const portfolioData = storage.get('portfolioData') || {};
+
     this.assets = portfolioData.assets || [];
     this.cashBalance = portfolioData.cashBalance || 0;
-    this.sortAscending = false;
-
+    this.sortAscending = !portfolioData.sortAscending || false;
+    this.lastPropertySorted = portfolioData.lastPropertySorted || 'pctOfPortfolio';
+    this.lastPropertySortedHeader = portfolioData.lastPropertySortedHeader;
     this.#calculateTotals();
   }
 
@@ -27,8 +29,8 @@ class Portfolio {
     this.update();
   }
 
-  removeAsset(assetId) {
-    this.assets = this.assets.filter(asset => asset.id !== assetId);
+  removeAsset(id) {
+    this.assets = this.assets.filter(asset => asset.id !== Number(id));
     this.update();
   }
 
@@ -52,8 +54,15 @@ class Portfolio {
       return;
     }
 
+    let sortBy;
+
+    if (!header) {
+      sortBy = this.lastPropertySorted; // If header element is undefinted, sort by percentage of portfolio by default
+    } else {
+      sortBy = header.dataset.sortBy;
+    }
+
     // Determines which property to sort by such as asset ticker, name, type, and so on...
-    const { sortBy } = header.dataset;
 
     const sortStrings = isNaN(this.assets[0][sortBy]); // Determine if the values being sorted are not numbers
 
@@ -63,7 +72,7 @@ class Portfolio {
     if (this.lastPropertySorted !== sortBy) {
       this.sortAscending = sortStrings; // if sortStrings is true, then sortAscending is true
     }
-    
+  
     if (sortStrings) {
       this.assets = this.sortAscending
         ? this.assets.sort((a, b) => a[sortBy].localeCompare(b[sortBy]))
@@ -77,10 +86,11 @@ class Portfolio {
     this.sortAscending = !this.sortAscending;
     this.lastPropertySorted = sortBy;
     this.lastPropertySortedHeader = header;
+    this.update();
   }
 
-  editAsset(assetId) {
-    const toEdit = this.assets.find(asset => asset.id === assetId);
+  editAsset(id) {
+    const toEdit = this.assets.find(asset => asset.id === Number(id));
     storage.set('toEdit', toEdit);
   }
 
@@ -88,7 +98,7 @@ class Portfolio {
     this.#resetTotals(); // Reset totals prior to recalculating
 
     this.assets.forEach((asset, index) => {
-      asset.id = `asset-${index + 1}`; // The asset ID will be the basis for removing assets
+      asset.id = index + 1; // The asset ID will be the basis for removing assets
       this.totalInvested += asset.totalCost;
       this.#assetsTotalValue += asset.currentValue;
       this.totalProfitLoss += asset.profitLoss;

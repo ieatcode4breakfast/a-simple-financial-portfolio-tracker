@@ -5,7 +5,7 @@ import Portfolio from './portfolio.js';
 
 const portfolio = new Portfolio;
 
-class HandleAsset {
+class AddAsset {
   tickerInput;
   sharesInput;
   totalCostInput;
@@ -108,4 +108,4 @@ class HandleAsset {
   }
 }
 
-export default HandleAsset;
+export default AddAsset;

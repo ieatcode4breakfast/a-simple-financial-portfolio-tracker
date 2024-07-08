@@ -21,8 +21,9 @@ class PortfolioTable {
     document.querySelectorAll('.js-edit')
       .forEach(assetRow => {
         assetRow.addEventListener('click', () => {
-          const { assetId } = assetRow.dataset;
-          portfolio.editAsset(assetId);
+          const { id } = assetRow.dataset;
+          console.log(assetRow.dataset)
+          portfolio.editAsset(id);
           window.location.href = 'edit-asset.html';
         });
       });
@@ -30,8 +31,9 @@ class PortfolioTable {
     document.querySelectorAll('.js-remove-icon')
       .forEach(icon => {
         icon.addEventListener('click', () => {
-          const { assetId } = icon.dataset;
-          portfolio.removeAsset(assetId);
+          const { id } = icon.dataset;
+          console.log(id);
+          portfolio.removeAsset(id);
           this.renderAssets(portfolio);
           summary.render(portfolio);
         });
@@ -45,7 +47,7 @@ class PortfolioTable {
   
   #generateAssetRow(asset, profitLossClass) {
     const row = document.createElement('tr');
-    row.setAttribute('data-asset-id', asset.id);
+    row.setAttribute('data-id', asset.id);
     row.classList.add('js-edit');
     row.innerHTML = `
       <td class="ticker">${asset.ticker}</td>
@@ -61,7 +63,7 @@ class PortfolioTable {
       <td class="profit-loss-pct ${profitLossClass}">${format.pct(asset.profitLossPct, true)}</td>
       <td>
         <div class="remove-icon-container">
-          <img src="icons/remove-icon.png" class="remove-icon js-remove-icon" data-asset-id="${asset.id}">
+          <img src="icons/remove-icon.png" class="remove-icon js-remove-icon" data-id="${asset.id}">
           <div class="tooltip">Remove asset</div>
         </div>
       </td>
