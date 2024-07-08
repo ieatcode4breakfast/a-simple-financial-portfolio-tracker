@@ -72,7 +72,9 @@ class PortfolioTable {
     return row;
   }
   
-  #renderSortIndicator({ lastPropertySortedHeader, sortAscending }) {
+  #renderSortIndicator({ lastPropertySorted, sortAscending }) {
+    const lastPropertySortedHeader = document.querySelector(`th[data-sort-by="${lastPropertySorted}"]`);
+    
     document.querySelectorAll('.portfolio-table th').forEach(header => {
       header.classList.remove('js-arrow-down', 'js-arrow-up');
     });

@@ -9,7 +9,6 @@ class Portfolio {
   cashBalancePct;
   totalPortfolioValue;
 
-  lastPropertySortedHeader;
   sortAscending;
   #assetsTotalValue;
 
@@ -20,7 +19,6 @@ class Portfolio {
     this.cashBalance = portfolioData.cashBalance || 0;
     this.sortAscending = !portfolioData.sortAscending || false;
     this.lastPropertySorted = portfolioData.lastPropertySorted || 'pctOfPortfolio';
-    this.lastPropertySortedHeader = portfolioData.lastPropertySortedHeader;
     this.#calculateTotals();
   }
 
@@ -85,7 +83,6 @@ class Portfolio {
 
     this.sortAscending = !this.sortAscending;
     this.lastPropertySorted = sortBy;
-    this.lastPropertySortedHeader = header;
     this.update();
   }
 
