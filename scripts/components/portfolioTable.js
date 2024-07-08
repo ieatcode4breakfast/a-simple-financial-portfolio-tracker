@@ -59,14 +59,14 @@ class PortfolioTable {
     return row;
   }
   
-  #renderSortIndicator(portfolio) {
+  #renderSortIndicator({ lastPropertySortedHeader, sortAscending }) {
     document.querySelectorAll('.portfolio-table th').forEach(header => {
       header.classList.remove('js-arrow-down', 'js-arrow-up');
     });
 
-    if (portfolio.lastPropertySortedHeader) {
-      portfolio.lastPropertySortedHeader.classList.toggle('js-arrow-down', portfolio.sortAscending);
-      portfolio.lastPropertySortedHeader.classList.toggle('js-arrow-up', !portfolio.sortAscending);
+    if (lastPropertySortedHeader) {
+      lastPropertySortedHeader.classList.toggle('js-arrow-down', sortAscending);
+      lastPropertySortedHeader.classList.toggle('js-arrow-up', !sortAscending);
     }
   }
 
