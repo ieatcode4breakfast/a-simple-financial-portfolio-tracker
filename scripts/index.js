@@ -10,7 +10,6 @@ export const portfolio = new Portfolio();
 export const portfolioTable = new PortfolioTable;
 export const summary = new Summary;
 
-portfolio.sortAssets();
 portfolioTable.renderAssets(portfolio, summary);
 summary.render(portfolio);
 

@@ -1,3 +1,4 @@
+import { portfolio } from '../index.js';
 import storage from '../utils/storage.js';
 
 class Portfolio {
@@ -8,7 +9,7 @@ class Portfolio {
   cashBalance;
   cashBalancePct;
   totalPortfolioValue;
-
+  lastPropertySorted;
   sortAscending;
   #assetsTotalValue;
 
@@ -17,8 +18,8 @@ class Portfolio {
 
     this.assets = portfolioData.assets || [];
     this.cashBalance = portfolioData.cashBalance || 0;
-    this.sortAscending = !portfolioData.sortAscending || false;
     this.lastPropertySorted = portfolioData.lastPropertySorted || 'pctOfPortfolio';
+    this.sortAscending = portfolioData.sortAscending || false;
     this.#calculateTotals();
   }
 
@@ -81,9 +82,10 @@ class Portfolio {
         : this.assets.sort((a, b) => b[sortBy] - a[sortBy]);
     }
 
-    this.sortAscending = !this.sortAscending;
     this.lastPropertySorted = sortBy;
-    this.update();
+    this.sortAscending = !this.sortAscending;
+
+    portfolio.update();
   }
 
   editAsset(id) {
