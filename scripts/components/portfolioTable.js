@@ -21,9 +21,11 @@ class PortfolioTable {
     document.querySelectorAll('.js-edit')
       .forEach(assetRow => {
         assetRow.addEventListener('click', () => {
-          const { id } = assetRow.dataset;
-          portfolio.editAsset(id);
-          window.location.href = 'edit-asset.html';
+          if (!event.target.closest('.js-remove-icon-cell')) {
+            const { id } = assetRow.dataset;
+            portfolio.editAsset(id);
+            window.location.href = 'edit-asset.html';
+          }
         });
       });
 
@@ -59,7 +61,7 @@ class PortfolioTable {
       <td class="last-price">${format.dollars(asset.lastPrice, asset.lastPriceDecimals)}</td>
       <td class="profit-loss ${profitLossClass}">${format.profitLoss(asset.profitLoss)}</td>
       <td class="profit-loss-pct ${profitLossClass}">${format.pct(asset.profitLossPct, true)}</td>
-      <td>
+      <td class="js-remove-icon-cell">
         <div class="remove-icon-container">
           <img src="icons/remove-icon.png" class="remove-icon js-remove-icon" data-id="${asset.id}">
           <div class="tooltip">Remove asset</div>

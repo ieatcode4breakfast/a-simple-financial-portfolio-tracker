@@ -35,7 +35,7 @@ class Popup {
       </div>
       <div class="buttons-section">
         <button class="js-action-button"></button>
-        <button class="js-cancel-button">Cancel</button>
+        <button class="js-popup-cancel-button">Cancel</button>
       </div>
     `
 
@@ -44,7 +44,7 @@ class Popup {
         this.action();
       });
 
-    document.querySelector('.js-cancel-button')
+    document.querySelector('.js-popup-cancel-button')
       .addEventListener('click', () => {
         this.close();
       });

@@ -5,11 +5,11 @@ import Portfolio from './portfolio.js';
 
 const portfolio = new Portfolio;
 
-class AddAsset {
+class NewAsset {
   tickerInput;
   sharesInput;
   totalCostInput;
-  #ticker;
+  ticker;
   #shares;
   #totalCost;
   #allInputsValid;
@@ -20,12 +20,23 @@ class AddAsset {
     this.totalCostInput = document.querySelector('.js-total-cost');;
     this.#allInputsValid = true;
 
-    this.#addListeners();
+    this.addListeners();
   }
 
-  overrideExisting() {
+  addListeners() {
+    document.querySelector('.js-cancel-button').addEventListener('click', () => {
+      window.location.href = './';
+    });
+
+    document.querySelector('.js-add-asset-form').addEventListener('submit', async (event) => {
+      event.preventDefault();
+      this.submitAsset();
+    });
+  }
+
+  #overrideExisting() {
     // Get the asset details if it already exists in the portfolio
-    const existingAsset = portfolio.search(this.#ticker);
+    const existingAsset = portfolio.search(this.ticker);
 
     // If it exists, remove it
     if (existingAsset) {
@@ -33,21 +44,10 @@ class AddAsset {
     }
   }
 
-  #addListeners() {
-    document.querySelector('.js-cancel-button').addEventListener('click', () => {
-      window.location.href = './';
-    });
-
-    document.querySelector('.js-add-asset-form').addEventListener('submit', async (event) => {
-      event.preventDefault();
-      this.#submitAsset();
-    });
-  }
-
   #validateInputs() {
     this.#allInputsValid = true;
 
-    if (this.#ticker === '') {
+    if (this.ticker === '') {
       this.tickerInput.classList.add('js-input-error');
       this.#allInputsValid = false;
     } else {
@@ -75,8 +75,8 @@ class AddAsset {
     }
   }
 
-  async #submitAsset() {
-    this.#ticker = this.tickerInput.value.toUpperCase();
+  async submitAsset() {
+    this.ticker = this.tickerInput.value.toUpperCase();
     this.#shares = Number(this.sharesInput.value);
     this.#totalCost = Number(this.totalCostInput.value);
 
@@ -87,25 +87,25 @@ class AddAsset {
     }
 
     // Check if there is already an existing market data stored for this ticker
-    const existingData = marketData.search(this.#ticker);
+    const existingData = marketData.search(this.ticker);
 
     // If there is no market data stored yet, fetch it from live market data
     if (!existingData) {
-      console.log(`No existing data available for ticker symbol ${this.#ticker}, fetching live market data...`);
-      await marketData.get(this.#ticker);
+      console.log(`No existing data available for ticker symbol ${this.ticker}, fetching live market data...`);
+      await marketData.getSingleQuote(this.ticker);
     }
 
     const asset = new Asset({ 
-      ticker: this.#ticker, 
+      ticker: this.ticker, 
       shares: this.#shares, 
       totalCost: this.#totalCost
     });
 
     asset.processAssetData();
-    this.overrideExisting();
+    this.#overrideExisting();
     portfolio.addAsset(asset);
     window.location.href = '/';
   }
 }
 
-export default AddAsset;
+export default NewAsset;

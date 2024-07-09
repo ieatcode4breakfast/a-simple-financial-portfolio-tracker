@@ -1,8 +1,8 @@
-import AddAsset from './data/newAsset.js';
+import NewAsset from './data/newAsset.js';
 import storage from './utils/storage.js';
 import { NoAsset } from './components/popups/prompts.js';
 
-class EditAsset extends AddAsset {
+class EditAsset extends NewAsset {
   #toEdit;
 
   constructor() {

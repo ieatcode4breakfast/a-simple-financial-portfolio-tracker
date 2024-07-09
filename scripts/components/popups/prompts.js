@@ -49,3 +49,21 @@ export class NoAsset extends Popup {
     window.location.href = '/';
   }
 }
+
+export class OverrideExisting extends Popup {
+  #addAssetClass;
+
+  constructor(addAssetClass) {
+    super(
+      'Override existing asset',
+      'This asset already exists in your portfolio. Would you like to override it?',
+      'Yes'
+    );
+
+    this.#addAssetClass = addAssetClass;
+  }
+
+  action() {
+    this.#addAssetClass.submitAsset();
+  }
+}

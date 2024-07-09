@@ -5,7 +5,7 @@ const API_KEY = 'fd1342d6d7msh3c84b13bab900bcp13a917jsnd53a2437b57f';
 const marketData = {
   stored: storage.get('marketData') || [],
 
-  get: async function(ticker) {
+  getSingleQuote: async function(ticker) {
     try {
       const url = `https://yahoo-finance127.p.rapidapi.com/price/${ticker}`;
       const options = {
