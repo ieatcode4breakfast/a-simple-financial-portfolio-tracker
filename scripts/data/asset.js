@@ -19,11 +19,11 @@ export class Asset {
     this.ticker = assetInput.ticker;
     this.totalCost = assetInput.totalCost;
     this.shares = assetInput.shares;
+    this.#processAssetData();
   }
 
-  processAssetData() {
+  #processAssetData() {
     const data = marketData.search(this.ticker);
-    console.log(data);
     this.name = data.name;
     this.type = data.type;
     this.lastPrice = Number(data.lastPrice);

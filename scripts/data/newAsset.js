@@ -34,14 +34,48 @@ class NewAsset {
     });
   }
 
-  #overrideExisting() {
-    // Get the asset details if it already exists in the portfolio
-    const existingAsset = portfolio.search(this.ticker);
+  async submitAsset() {
+    this.ticker = this.tickerInput.value.toUpperCase();
+    this.#shares = Number(this.sharesInput.value);
+    this.#totalCost = Number(this.totalCostInput.value);
 
-    // If it exists, remove it
-    if (existingAsset) {
-      portfolio.removeAsset(existingAsset.id);
+    this.#validateInputs();
+
+    if (!this.#allInputsValid) {
+      return
     }
+
+    // Check if there is already an existing market data stored for this ticker
+    const existingData = marketData.search(this.ticker);
+
+    // If there is no market data stored yet, fetch it from live market data
+    if (!existingData) {
+      console.log(`No existing data available for ticker symbol ${this.ticker}, fetching live market data...`);
+      await marketData.getSingleQuote(this.ticker);
+    }
+
+    const asset = new Asset({ 
+      ticker: this.ticker, 
+      shares: this.#shares, 
+      totalCost: this.#totalCost
+    });
+
+    console.log(asset);
+
+    // Get the index of an asset if it already exists
+    const index = portfolio.assets.findIndex(assetData => assetData.ticker === this.ticker);
+    console.log(index);
+
+    // If it exists, replace it
+    if (index !== -1) {
+      portfolio.replaceAsset(asset, index);
+    } else {
+      portfolio.addAsset(asset);
+    }
+
+    console.log(portfolio);
+
+    window.location.href = '/';
   }
 
   #validateInputs() {
@@ -75,37 +109,6 @@ class NewAsset {
     }
   }
 
-  async submitAsset() {
-    this.ticker = this.tickerInput.value.toUpperCase();
-    this.#shares = Number(this.sharesInput.value);
-    this.#totalCost = Number(this.totalCostInput.value);
-
-    this.#validateInputs();
-
-    if (!this.#allInputsValid) {
-      return
-    }
-
-    // Check if there is already an existing market data stored for this ticker
-    const existingData = marketData.search(this.ticker);
-
-    // If there is no market data stored yet, fetch it from live market data
-    if (!existingData) {
-      console.log(`No existing data available for ticker symbol ${this.ticker}, fetching live market data...`);
-      await marketData.getSingleQuote(this.ticker);
-    }
-
-    const asset = new Asset({ 
-      ticker: this.ticker, 
-      shares: this.#shares, 
-      totalCost: this.#totalCost
-    });
-
-    asset.processAssetData();
-    this.#overrideExisting();
-    portfolio.addAsset(asset);
-    window.location.href = '/';
-  }
 }
 
 export default NewAsset;

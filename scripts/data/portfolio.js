@@ -27,6 +27,11 @@ class Portfolio {
     this.update();
   }
 
+  replaceAsset(asset, index) {
+    this.assets[index] = asset;
+    this.update();
+  } 
+
   removeAsset(id) {
     this.assets = this.assets.filter(asset => asset.id !== Number(id));
     this.update();
