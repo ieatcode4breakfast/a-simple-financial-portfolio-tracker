@@ -35,7 +35,7 @@ class AddAsset {
 
   #addListeners() {
     document.querySelector('.js-cancel-button').addEventListener('click', () => {
-      window.location.href = './index.html';
+      window.location.href = './';
     });
 
     document.querySelector('.js-add-asset-form').addEventListener('submit', async (event) => {
@@ -104,7 +104,7 @@ class AddAsset {
     asset.processAssetData();
     this.overrideExisting();
     portfolio.addAsset(asset);
-    window.location.href = './index.html';
+    window.location.href = '/';
   }
 }
 

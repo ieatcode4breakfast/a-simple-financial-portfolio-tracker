@@ -2,7 +2,7 @@ class Popup {
   #headerText;
   #content;
   #actionText;
-  #popupBody;
+  popupBody;
 
   constructor(
     headerText = 'Popup Header',
@@ -13,12 +13,12 @@ class Popup {
     this.#content = content;
     this.#actionText = actionText;
 
-    this.#display();
+    this.display();
     this.#render();
   }
   
   close() {
-    this.#popupBody.innerHTML = '';
+    this.popupBody.innerHTML = '';
     document.querySelector('.js-popup-section').style.display = "none";
   }
 
@@ -26,11 +26,11 @@ class Popup {
     console.log('Nothing happens.');
   }
 
-  #display() {
+  display() {
     document.querySelector('.js-popup-section').style.display = "flex";
 
-    this.#popupBody = document.querySelector('.js-popup-body');
-    this.#popupBody.innerHTML = `
+    this.popupBody = document.querySelector('.js-popup-body');
+    this.popupBody.innerHTML = `
       <div class="popup-content js-popup-content">
       </div>
       <div class="buttons-section">

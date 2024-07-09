@@ -22,7 +22,6 @@ class PortfolioTable {
       .forEach(assetRow => {
         assetRow.addEventListener('click', () => {
           const { id } = assetRow.dataset;
-          console.log(assetRow.dataset)
           portfolio.editAsset(id);
           window.location.href = 'edit-asset.html';
         });
@@ -32,7 +31,6 @@ class PortfolioTable {
       .forEach(icon => {
         icon.addEventListener('click', () => {
           const { id } = icon.dataset;
-          console.log(id);
           portfolio.removeAsset(id);
           this.renderAssets(portfolio);
           summary.render(portfolio);
@@ -73,7 +71,6 @@ class PortfolioTable {
   }
   
   #renderSortIndicator({ lastPropertySorted, sortAscending }) {
-    console.log(sortAscending);
     const lastPropertySortedHeader = document.querySelector(`th[data-sort-by="${lastPropertySorted}"]`);
 
     document.querySelectorAll('.portfolio-table th').forEach(header => {

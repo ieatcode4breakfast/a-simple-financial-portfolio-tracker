@@ -17,3 +17,35 @@ export class ResetPorftolio extends Popup {
     this.#portfolio.reset();
   }
 }
+
+export class NoAsset extends Popup {
+  constructor() {
+    super(
+      'No asset detected',
+      `There isn't an asset currently being edited.`,
+      'Close'
+    )
+  }
+
+  display() {
+    document.querySelector('.js-popup-section').style.display = "flex";
+
+    this.popupBody = document.querySelector('.js-popup-body');
+    this.popupBody.innerHTML = `
+      <div class="popup-content js-popup-content">
+      </div>
+      <div class="buttons-section">
+        <button class="js-action-button"></button>
+      </div>
+    `
+
+    document.querySelector('.js-action-button')
+      .addEventListener('click', () => {
+        this.action();
+      });
+  }
+
+  action() {
+    window.location.href = '/';
+  }
+}

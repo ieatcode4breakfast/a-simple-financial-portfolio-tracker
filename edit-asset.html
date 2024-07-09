@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Add an Asset</title>
+  <title>Edit asset</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -13,6 +13,7 @@
   <link rel="stylesheet" href="styles/general.css">
   <link rel="stylesheet" href="styles/header.css">
   <link rel="stylesheet" href="styles/add-asset.css">
+  <link rel="stylesheet" href="styles/popup.css">
 </head>
 <body>
   <header class="header">
@@ -45,7 +46,15 @@
       </div>
     </div>
   </main>
-
+  <div class="popup-section js-popup-section">
+    <div class="popup-window">
+      <div class="popup-header">
+        <h3 class="js-popup-header"></h3>
+      </div>
+      <div class="popup-body js-popup-body">
+      </div>
+    </div>
+  </div>
   <script type="module" src="scripts/editAsset.js"></script>
 </body>
 </html>
