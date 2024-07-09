@@ -1,4 +1,3 @@
-import { portfolio } from '../index.js';
 import storage from '../utils/storage.js';
 
 class Portfolio {
@@ -85,7 +84,7 @@ class Portfolio {
     this.lastPropertySorted = sortBy;
     this.sortAscending = !this.sortAscending;
 
-    portfolio.update();
+    this.update();
   }
 
   editAsset(id) {
