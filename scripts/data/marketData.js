@@ -58,8 +58,6 @@ const marketData = {
 
     } catch (error) {
       console.error('An error occured while updating market data.', error);
-      console.log(tickers);
-      console.log(tickersString);
     }
   },
 
