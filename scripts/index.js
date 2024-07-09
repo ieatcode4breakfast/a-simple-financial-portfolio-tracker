@@ -24,6 +24,11 @@ document.querySelector('.js-edit-cash')
     new EditCash(portfolio);
   });
 
+document.querySelector('.js-update-market-data')
+  .addEventListener('click', () => {
+    marketData.getMultiQuote(portfolio);
+  });
+
 document.querySelector('.js-reset-portfolio')
   .addEventListener('click', () => {
     new ResetPorftolio(portfolio);

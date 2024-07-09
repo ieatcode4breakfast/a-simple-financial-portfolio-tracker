@@ -23,14 +23,15 @@ export class Asset {
 
   processAssetData() {
     const data = marketData.search(this.ticker);
+    console.log(data);
     this.name = data.name;
     this.type = data.type;
-    this.lastPrice = data.lastPrice;
-    this.currentValue = this.shares * this.lastPrice;
-    this.averagePrice = this.totalCost / this.shares;
-    this.profitLoss = this.currentValue - this.totalCost;
-    this.profitLossPct = this.profitLoss / this.totalCost;
-    this.lastPriceDecimals = this.#countDecimals(this.lastPrice);
+    this.lastPrice = Number(data.lastPrice);
+    this.currentValue = Number(this.shares * this.lastPrice);
+    this.averagePrice = Number(this.totalCost / this.shares);
+    this.profitLoss = Number(this.currentValue - this.totalCost);
+    this.profitLossPct = Number(this.profitLoss / this.totalCost);
+    this.lastPriceDecimals = Number(this.#countDecimals(this.lastPrice));
   }
 
   // Count the number of decimals on the last price
