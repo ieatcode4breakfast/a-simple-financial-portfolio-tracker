@@ -19,7 +19,6 @@ class AddAsset extends NewAsset {
     document.querySelector('.js-add-asset-form').addEventListener('submit', async (event) => {
       event.preventDefault();
       if (this.#portfolio.search(this.tickerInput.value)) {
-        console.log(this.#portfolio.search(this.ticker));
         new OverrideExisting(this);
         return;
       }

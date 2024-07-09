@@ -5,7 +5,7 @@ export const testInput1 = {
   type: 'Crypto',
   ticker: 'BTC-USD',
   shares: 0.01085,
-  totalCost: 0.01085,
+  totalCost: 732.33,
 };
 
 export const testInput2 = {

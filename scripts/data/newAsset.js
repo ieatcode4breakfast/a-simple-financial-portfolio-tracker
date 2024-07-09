@@ -60,11 +60,8 @@ class NewAsset {
       totalCost: this.#totalCost
     });
 
-    console.log(asset);
-
     // Get the index of an asset if it already exists
     const index = portfolio.assets.findIndex(assetData => assetData.ticker === this.ticker);
-    console.log(index);
 
     // If it exists, replace it
     if (index !== -1) {
@@ -72,8 +69,6 @@ class NewAsset {
     } else {
       portfolio.addAsset(asset);
     }
-
-    console.log(portfolio);
 
     window.location.href = '/';
   }

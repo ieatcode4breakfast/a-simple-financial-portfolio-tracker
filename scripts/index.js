@@ -25,8 +25,13 @@ document.querySelector('.js-edit-cash')
   });
 
 document.querySelector('.js-update-market-data')
-  .addEventListener('click', () => {
-    marketData.getMultiQuote(portfolio);
+  .addEventListener('click', async () => {
+    if (portfolio.assets.length === 0) {
+      console.log('There are no assets to update.');
+      return;
+    } 
+    await marketData.getMultiQuote(portfolio);
+    window.location.reload();
   });
 
 document.querySelector('.js-reset-portfolio')
