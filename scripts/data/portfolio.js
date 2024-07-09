@@ -27,10 +27,19 @@ class Portfolio {
     this.update();
   }
 
-  replaceAsset(asset, index) {
-    this.assets[index] = asset;
+  replaceAsset(asset) {
+    // Get the index of an asset if it already exists
+    const index = this.assets.findIndex(assetData => assetData.ticker === asset.ticker);
+
+    // If it exists, replace it
+    if (index !== -1) {
+      this.assets[index] = asset;
+    } else {
+      this.addAsset(asset);
+    }
+
     this.update();
-  } 
+  }
 
   removeAsset(id) {
     this.assets = this.assets.filter(asset => asset.id !== Number(id));

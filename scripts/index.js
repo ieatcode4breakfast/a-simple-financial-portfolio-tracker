@@ -3,8 +3,10 @@ import PortfolioTable from './components/portfolioTable.js';
 import Summary from './components/summary.js';
 import EditCash from './components/popups/editCashPopup.js';
 import { ResetPorftolio } from './components/popups/prompts.js';
+import Asset from './data/asset.js';
 import marketData from './data/marketData.js';
 import { submitTestInput } from './tests/testInputs.js';
+
 
 export const portfolio = new Portfolio();
 export const portfolioTable = new PortfolioTable;
@@ -29,8 +31,17 @@ document.querySelector('.js-update-market-data')
     if (portfolio.assets.length === 0) {
       console.log('There are no assets to update.');
       return;
-    } 
+    }
+
     await marketData.getMultiQuote(portfolio);
+
+    portfolio.assets.forEach(asset => {
+      const { ticker, totalCost, shares } = asset;
+      console.log({ ticker, totalCost, shares });
+      const newAsset = new Asset({ ticker, totalCost, shares });
+      portfolio.replaceAsset(newAsset);
+    });
+    
     window.location.reload();
   });
 

@@ -42,7 +42,6 @@ const marketData = {
 
       const response = await fetch(url, options);
       const result = await response.json();
-      console.log(result);
       const resultArray = Object.entries(result); // Convert result from an object to an array
       
       if (resultArray.length === tickers.length) {

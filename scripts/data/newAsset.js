@@ -61,14 +61,7 @@ class NewAsset {
     });
 
     // Get the index of an asset if it already exists
-    const index = portfolio.assets.findIndex(assetData => assetData.ticker === this.ticker);
-
-    // If it exists, replace it
-    if (index !== -1) {
-      portfolio.replaceAsset(asset, index);
-    } else {
-      portfolio.addAsset(asset);
-    }
+    portfolio.replaceAsset(asset);
 
     window.location.href = '/';
   }
