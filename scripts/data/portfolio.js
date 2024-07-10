@@ -14,7 +14,6 @@ class Portfolio {
 
   constructor() {
     const portfolioData = storage.get('portfolioData') || {};
-
     this.assets = portfolioData.assets || [];
     this.cashBalance = portfolioData.cashBalance || 0;
     this.lastPropertySorted = portfolioData.lastPropertySorted || 'pctOfPortfolio';
@@ -34,6 +33,7 @@ class Portfolio {
     // If it exists, replace it
     if (index !== -1) {
       this.assets[index] = asset;
+
     } else {
       this.addAsset(asset);
     }
@@ -70,11 +70,10 @@ class Portfolio {
 
     if (!header) {
       sortBy = this.lastPropertySorted; // If header element is undefinted, sort by percentage of portfolio by default
+
     } else {
       sortBy = header.dataset.sortBy;
     }
-
-    // Determines which property to sort by such as asset ticker, name, type, and so on...
 
     const sortStrings = isNaN(this.assets[0][sortBy]); // Determine if the values being sorted are not numbers
 
@@ -89,6 +88,7 @@ class Portfolio {
       this.assets = this.sortAscending
         ? this.assets.sort((a, b) => a[sortBy].localeCompare(b[sortBy]))
         : this.assets.sort((a, b) => b[sortBy].localeCompare(a[sortBy]));
+
     } else {
       this.assets = this.sortAscending
         ? this.assets.sort((a, b) => a[sortBy] - b[sortBy])
@@ -97,7 +97,6 @@ class Portfolio {
 
     this.lastPropertySorted = sortBy;
     this.sortAscending = !this.sortAscending;
-
     this.update();
   }
 
@@ -108,7 +107,6 @@ class Portfolio {
 
   #calculateTotals() {
     this.#resetTotals(); // Reset totals prior to recalculating
-
     this.assets.forEach((asset, index) => {
       asset.id = index + 1; // The asset ID will be the basis for removing assets
       this.totalInvested += asset.totalCost;
@@ -119,7 +117,6 @@ class Portfolio {
     this.totalPortfolioValue = this.#assetsTotalValue + this.cashBalance;
     this.totalProfitLossPct = this.#assetsTotalValue === 0 ? 0 : this.totalProfitLoss / (this.#assetsTotalValue + this.cashBalance);
     this.cashBalancePct = this.#assetsTotalValue === 0 ? 0 : this.cashBalancePct / this.totalPortfolioValue;
-
     this.#calculateAssetPct();
   }
 

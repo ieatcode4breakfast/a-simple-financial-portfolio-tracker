@@ -7,7 +7,6 @@ class AddAsset extends NewAsset {
 
   constructor(portfolio) {
     super();
-
     this.#portfolio = portfolio;
   }
 

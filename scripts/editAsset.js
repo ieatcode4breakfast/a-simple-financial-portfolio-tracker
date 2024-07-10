@@ -11,7 +11,6 @@ class EditAsset extends NewAsset {
     this.tickerInput.value = this.#toEdit.ticker || '';
     this.sharesInput.value = this.#toEdit.shares || '';
     this.totalCostInput.value = this.#toEdit.totalCost || '';
-
     this.initialCheck();
   }
 

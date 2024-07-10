@@ -19,7 +19,6 @@ class NewAsset {
     this.sharesInput = document.querySelector('.js-shares');;
     this.totalCostInput = document.querySelector('.js-total-cost');;
     this.#allInputsValid = true;
-
     this.addListeners();
   }
 
@@ -38,7 +37,6 @@ class NewAsset {
     this.ticker = this.tickerInput.value.toUpperCase();
     this.#shares = Number(this.sharesInput.value);
     this.#totalCost = Number(this.totalCostInput.value);
-
     this.#validateInputs();
 
     if (!this.#allInputsValid) {
@@ -60,9 +58,7 @@ class NewAsset {
       totalCost: this.#totalCost
     });
 
-    // Get the index of an asset if it already exists
     portfolio.replaceAsset(asset);
-
     window.location.href = '/';
   }
 

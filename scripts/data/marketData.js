@@ -8,6 +8,7 @@ const marketData = {
   getSingleQuote: async function(ticker) {
     try {
       const url = `https://yahoo-finance127.p.rapidapi.com/price/${ticker}`;
+
       const options = {
         method: 'GET',
         headers: {
@@ -49,6 +50,7 @@ const marketData = {
           const asset = this.buildAssetDetails(ticker, resultArray[index][1]);
           this.storeAsset(ticker, asset);
         });
+        
       } else {
         console.log('The number of tickers does not match the number of assets fetched.')
       }
@@ -64,13 +66,13 @@ const marketData = {
     const name = data.shortName || data.longName;
     const type = data.typeDisp;
     const lastPrice = Number(data.regularMarketPrice.raw);
-
     return { ticker, name, type, lastPrice };
   },
 
   storeAsset(ticker, asset) {
     // Filter out current ticker from stored data if already existing
     const filteredData = this.removeExisting(ticker, this.stored); 
+
     filteredData.push(asset);
     this.stored = filteredData;
     storage.set('marketData', this.stored);

@@ -12,7 +12,6 @@ class Popup {
     this.#headerText = headerText;
     this.#content = content;
     this.#actionText = actionText;
-
     this.display();
     this.#render();
   }
@@ -28,7 +27,6 @@ class Popup {
 
   display() {
     document.querySelector('.js-popup-section').style.display = "flex";
-
     this.popupBody = document.querySelector('.js-popup-body');
     this.popupBody.innerHTML = `
       <div class="popup-content js-popup-content">

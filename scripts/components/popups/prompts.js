@@ -29,7 +29,6 @@ export class NoAsset extends Popup {
 
   display() {
     document.querySelector('.js-popup-section').style.display = "flex";
-
     this.popupBody = document.querySelector('.js-popup-body');
     this.popupBody.innerHTML = `
       <div class="popup-content js-popup-content">

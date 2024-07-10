@@ -5,8 +5,6 @@ import EditCash from './components/popups/editCashPopup.js';
 import { ResetPorftolio } from './components/popups/prompts.js';
 import Asset from './data/asset.js';
 import marketData from './data/marketData.js';
-import { submitTestInput } from './tests/testInputs.js';
-
 
 export const portfolio = new Portfolio();
 export const portfolioTable = new PortfolioTable;
@@ -18,7 +16,6 @@ summary.render(portfolio);
 document.querySelector('.js-add-asset')
   .addEventListener('click', () => {
     window.location.href = 'add-asset.html';
-    //submitTestInput(portfolio, marketData, portfolioTable, summary);
   });
 
 document.querySelector('.js-edit-cash')
@@ -34,7 +31,7 @@ document.querySelector('.js-update-market-data')
     }
 
     await marketData.getMultiQuote(portfolio);
-
+    
     portfolio.assets.forEach(asset => {
       const { ticker, totalCost, shares } = asset;
       console.log({ ticker, totalCost, shares });
