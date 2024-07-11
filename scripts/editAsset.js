@@ -1,6 +1,9 @@
 import NewAsset from './data/newAsset.js';
 import storage from './utils/storage.js';
 import { NoAsset } from './components/popups/prompts.js';
+import apiKeyCheck from './utils/apiKeyCheck.js';
+
+apiKeyCheck();
 
 class EditAsset extends NewAsset {
   #toEdit;

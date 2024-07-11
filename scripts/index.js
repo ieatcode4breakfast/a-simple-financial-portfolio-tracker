@@ -5,6 +5,7 @@ import EditCash from './components/popups/editCashPopup.js';
 import { ResetPorftolio } from './components/popups/prompts.js';
 import Asset from './data/asset.js';
 import marketData from './data/marketData.js';
+import apiKeyCheck from './utils/apiKeyCheck.js';
 
 export const portfolio = new Portfolio();
 export const portfolioTable = new PortfolioTable;
@@ -12,9 +13,11 @@ export const summary = new Summary;
 
 portfolioTable.renderAssets(portfolio, summary);
 summary.render(portfolio);
+apiKeyCheck();
 
 document.querySelector('.js-add-asset')
   .addEventListener('click', () => {
+    if (!apiKeyCheck()) return;
     window.location.href = 'add-asset.html';
   });
 
@@ -25,6 +28,8 @@ document.querySelector('.js-edit-cash')
 
 document.querySelector('.js-update-market-data')
   .addEventListener('click', async () => {
+    if (!apiKeyCheck()) return;
+
     if (portfolio.assets.length === 0) {
       console.log('There are no assets to update.');
       return;

@@ -2,6 +2,7 @@ import valid from '../utils/validate.js';
 import marketData from './marketData.js';
 import Asset from './asset.js';
 import Portfolio from './portfolio.js';
+import apiKeyCheck from '../utils/apiKeyCheck.js';
 
 const portfolio = new Portfolio;
 
@@ -29,6 +30,7 @@ class NewAsset {
 
     document.querySelector('.js-add-asset-form').addEventListener('submit', async (event) => {
       event.preventDefault();
+      if (!apiKeyCheck()) return;
       this.submitAsset();
     });
   }

@@ -11,7 +11,7 @@ class EditCash extends Popup {
       'Edit Cash Balance',
       `
         Enter cash balance:
-        <input class="cash-input js-cash-input" type="text" placeholder="$">
+        <input class="js-cash-input" type="text" placeholder="$">
         <span class="error-message js-error-message">Invalid input.</span>
       `,
       'Submit'

@@ -1,6 +1,10 @@
+import { ApiKeyPrompt } from './components/popups/apiKeyPopup.js';
 import { OverrideExisting } from './components/popups/prompts.js';
 import NewAsset from './data/newAsset.js';
 import Portfolio from './data/portfolio.js';
+import apiKeyCheck from './utils/apiKeyCheck.js';
+
+apiKeyCheck();
 
 class AddAsset extends NewAsset {
   #portfolio;
