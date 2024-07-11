@@ -61,7 +61,7 @@ class NewAsset {
     });
 
     portfolio.replaceAsset(asset);
-    window.location.href = '/';
+    window.location.href = './';
   }
 
   #validateInputs() {
