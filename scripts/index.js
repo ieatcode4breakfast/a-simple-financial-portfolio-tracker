@@ -6,6 +6,7 @@ import { ResetPorftolio } from './components/popups/prompts.js';
 import Asset from './data/asset.js';
 import marketData from './data/marketData.js';
 import apiKeyCheck from './utils/apiKeyCheck.js';
+import { ApiKeyPrompt } from './components/popups/apiKeyPopup.js';
 
 export const portfolio = new Portfolio();
 export const portfolioTable = new PortfolioTable;
@@ -24,6 +25,11 @@ document.querySelector('.js-add-asset')
 document.querySelector('.js-edit-cash')
   .addEventListener('click', () => {
     new EditCash(portfolio);
+  });
+
+document.querySelector('.js-edit-api-key')
+  .addEventListener('click', () => {
+    new ApiKeyPrompt;
   });
 
 document.querySelector('.js-update-market-data')

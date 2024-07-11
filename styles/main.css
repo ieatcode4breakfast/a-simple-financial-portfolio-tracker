@@ -58,12 +58,11 @@
   margin-right: 0.5rem;
 }
 
-@media (max-width: 700px) {
+@media (max-width: 815px) {
   .portfolio-options {
     display: flex;
     flex-direction: column;
     margin-left: 0;
-    align-items: end;
   }
 
   .portfolio-option {
@@ -71,10 +70,6 @@
     padding: 0.75rem 1rem;
     margin-bottom: 0.75rem;
     width: 17rem;
-    border-radius: 0.5rem 0 0 0.5rem;
-  }
-
-  .option-icon {
-    display: none;
+    border-radius: 0 0.5rem 0.5rem 0;
   }
 }
