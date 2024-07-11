@@ -20,5 +20,6 @@ export class ApiKeyPrompt extends Popup {
   action() {
     storage.set('apiKey', this.apiInput.value);
     this.close();
+    window.location.reload();
   }
 }
