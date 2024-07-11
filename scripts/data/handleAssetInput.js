@@ -50,7 +50,6 @@ class HandleAssetInput {
 
     // If there is no market data stored yet, fetch it from live market data
     if (!existingData) {
-      console.log(`No existing data available for ticker symbol ${this.ticker}, fetching live market data...`);
       await marketData.getSingleQuote(this.ticker);
     }
 

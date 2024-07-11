@@ -34,18 +34,12 @@ document.querySelector('.js-edit-api-key')
 
 document.querySelector('.js-update-market-data')
   .addEventListener('click', async () => {
-    if (!apiKeyCheck()) return;
-
-    if (portfolio.assets.length === 0) {
-      console.log('There are no assets to update.');
-      return;
-    }
+    if (!apiKeyCheck() || portfolio.assets.length === 0) return;
 
     await marketData.getMultiQuote(portfolio);
     
     portfolio.assets.forEach(asset => {
       const { ticker, totalCost, shares } = asset;
-      console.log({ ticker, totalCost, shares });
       const handleAssetInput = new Asset({ ticker, totalCost, shares });
       portfolio.replaceAsset(handleAssetInput);
     });

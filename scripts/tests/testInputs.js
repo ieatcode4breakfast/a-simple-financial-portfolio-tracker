@@ -108,15 +108,11 @@ export const testInputs = [
 export async function submitTestInput(portfolio, marketData, portfolioTable, summary) {
   const input = testInputs[portfolio.assets.length];
 
-  if (!input) {
-    console.log('No more test inputs available.');
-    return;
-  }
+  if (!input) return;
 
   const existingData = marketData.search(input.ticker);
 
   if (!existingData) {
-    console.log(`No existing data available for ticker symbol ${input.ticker}, fetching live market data...`);
     await marketData.get(input.ticker);
   }
 

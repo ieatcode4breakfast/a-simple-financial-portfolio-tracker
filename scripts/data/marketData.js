@@ -50,12 +50,7 @@ const marketData = {
           const asset = this.buildAssetDetails(ticker, resultArray[index][1]);
           this.storeAsset(ticker, asset);
         });
-        
-      } else {
-        console.log('The number of tickers does not match the number of assets fetched.')
       }
-
-      console.log('The market data has updated successfully', resultArray);
 
     } catch (error) {
       console.error('An error occured while updating market data.', error);
