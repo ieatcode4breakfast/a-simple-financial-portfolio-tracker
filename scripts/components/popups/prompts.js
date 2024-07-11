@@ -45,7 +45,7 @@ export class NoAsset extends Popup {
   }
 
   action() {
-    window.location.href = 'index.html';
+    window.location.href = './';
   }
 }
 
