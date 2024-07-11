@@ -6,7 +6,7 @@ import apiKeyCheck from '../utils/apiKeyCheck.js';
 
 const portfolio = new Portfolio;
 
-class NewAsset {
+class HandleAssetInput {
   tickerInput;
   sharesInput;
   totalCostInput;
@@ -97,4 +97,4 @@ class NewAsset {
 
 }
 
-export default NewAsset;
+export default HandleAssetInput;

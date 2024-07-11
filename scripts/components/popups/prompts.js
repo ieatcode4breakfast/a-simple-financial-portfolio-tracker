@@ -21,7 +21,7 @@ export class ResetPorftolio extends Popup {
 export class NoAsset extends Popup {
   constructor() {
     super(
-      'No asset detected',
+      'No asset being edited',
       `There isn't an asset currently being edited.`,
       'Close'
     )
@@ -45,7 +45,7 @@ export class NoAsset extends Popup {
   }
 
   action() {
-    window.location.href = './';
+    window.location.href = '../';
   }
 }
 

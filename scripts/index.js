@@ -46,8 +46,8 @@ document.querySelector('.js-update-market-data')
     portfolio.assets.forEach(asset => {
       const { ticker, totalCost, shares } = asset;
       console.log({ ticker, totalCost, shares });
-      const newAsset = new Asset({ ticker, totalCost, shares });
-      portfolio.replaceAsset(newAsset);
+      const handleAssetInput = new Asset({ ticker, totalCost, shares });
+      portfolio.replaceAsset(handleAssetInput);
     });
     
     window.location.reload();
