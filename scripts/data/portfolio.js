@@ -47,8 +47,7 @@ class Portfolio {
   }
 
   reset() {
-    storage.remove('portfolioData');
-    storage.remove('marketData');
+    storage.clear();
     window.location.reload();
   }
 

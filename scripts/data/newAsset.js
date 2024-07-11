@@ -30,12 +30,12 @@ class NewAsset {
 
     document.querySelector('.js-add-asset-form').addEventListener('submit', async (event) => {
       event.preventDefault();
-      if (!apiKeyCheck()) return;
       this.submitAsset();
     });
   }
 
   async submitAsset() {
+    if (!apiKeyCheck()) return;
     this.ticker = this.tickerInput.value.toUpperCase();
     this.#shares = Number(this.sharesInput.value);
     this.#totalCost = Number(this.totalCostInput.value);

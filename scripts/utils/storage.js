@@ -10,6 +10,10 @@ const storage = {
 
   remove: function(key) {
     localStorage.removeItem(key);
+  },
+
+  clear: function() {
+    localStorage.clear();
   }
 }
 
