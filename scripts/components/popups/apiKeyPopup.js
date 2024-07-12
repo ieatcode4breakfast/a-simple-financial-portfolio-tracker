@@ -14,7 +14,7 @@ export class ApiKeyPrompt extends Popup {
         <p class="api-key-instruction">
           This app uses Stock Pulse API from RapidAPI.com. To use or test this app, visit the Stock Pulse API page where you can sign up and get your own free API key for testing:
         </p>
-        <a href="https://rapidapi.com/manwilbahaa/api/yahoo-finance127">
+        <a href="https://rapidapi.com/manwilbahaa/api/yahoo-finance127" target="_blank">
           https://rapidapi.com/manwilbahaa/api/yahoo-finance127
         </a>
       `,
