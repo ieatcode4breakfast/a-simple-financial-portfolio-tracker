@@ -1,7 +1,6 @@
-import Popup from './popupTemplate.js';
 import { SingleActionPopup } from './singleActionPopup.js';
 
-export class addAssetSuccess extends SingleActionPopup {
+export class AddAssetSuccess extends SingleActionPopup {
   constructor(ticker) {
     super(
       'Success!',
@@ -15,7 +14,7 @@ export class addAssetSuccess extends SingleActionPopup {
   }
 }
 
-export class editAssetSuccess extends SingleActionPopup {
+export class EditAssetSuccess extends SingleActionPopup {
   constructor(ticker) {
     super(
       'Success!',
@@ -29,7 +28,7 @@ export class editAssetSuccess extends SingleActionPopup {
   }
 }
 
-export class editCashSuccess extends SingleActionPopup {
+export class EditCashSuccess extends SingleActionPopup {
   constructor() {
     super(
       'Success!',
@@ -43,7 +42,7 @@ export class editCashSuccess extends SingleActionPopup {
   }
 }
 
-export class updateMarketDataSuccess extends SingleActionPopup {
+export class UpdateMarketDataSuccess extends SingleActionPopup {
   constructor() {
     super(
       'Success!',
@@ -57,11 +56,11 @@ export class updateMarketDataSuccess extends SingleActionPopup {
   }
 }
 
-export class apiKeyUpdateSuccess extends SingleActionPopup {
+export class ApiKeyUpdateSuccess extends SingleActionPopup {
   constructor() {
     super(
       'Success!',
-      `Your API key has been udpated.`,
+      `Your API key has been updated.`,
       'OK'
     )
   }

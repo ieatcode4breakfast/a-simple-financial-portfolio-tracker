@@ -1,7 +1,7 @@
 import Popup from './popupTemplate.js';
 import { portfolio , portfolioTable, summary } from '../../index.js';
 import valid from '../../utils/validate.js';
-import { editCashSuccess } from './completionPopups.js';
+import { EditCashSuccess } from './completionPopups.js';
 
 class EditCash extends Popup {
   cashInput;
@@ -29,11 +29,11 @@ class EditCash extends Popup {
       return;
     }
 
-    portfolio.cashBalance = Number(this.cashInput.value);
+    portfolio.cashBalance = Number(this.cashInput.value);s
     portfolio.update();
     portfolioTable.renderAssets(portfolio);
     summary.render(portfolio);
-    new editCashSuccess;
+    new EditCashSuccess;
   }
 }
 

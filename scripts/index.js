@@ -8,7 +8,7 @@ import apiKeyCheck from './utils/apiKeyCheck.js';
 import { ResetPortfolio } from './components/popups/prompts.js';
 import { ApiKeyPrompt } from './components/popups/apiKeyPopup.js';
 import { InvalidApiKey, RequestLimitReached, GeneralError } from './components/popups/networkPopups.js';
-import { updateMarketDataSuccess } from './components/popups/completionPopups.js';
+import { UpdateMarketDataSuccess } from './components/popups/completionPopups.js';
 
 export const portfolio = new Portfolio();
 export const portfolioTable = new PortfolioTable;
@@ -47,7 +47,7 @@ document.querySelector('.js-update-market-data')
         portfolio.replaceAsset(handleAssetInput);
       });
       
-      new updateMarketDataSuccess;
+      new UpdateMarketDataSuccesspdateMarketDataSuccess;
 
     } else {
       switch (responseStatus) {

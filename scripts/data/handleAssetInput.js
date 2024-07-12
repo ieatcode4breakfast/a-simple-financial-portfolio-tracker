@@ -4,7 +4,7 @@ import Asset from './asset.js';
 import Portfolio from './portfolio.js';
 import apiKeyCheck from '../utils/apiKeyCheck.js';
 import { GeneralError, InvalidApiKey, InvalidTicker, RequestLimitReached } from '../components/popups/networkPopups.js';
-import { addAssetSuccess, editAssetSuccess } from '../components/popups/completionPopups.js';
+import { AddAssetSuccess, EditAssetSuccess } from '../components/popups/completionPopups.js';
 
 const portfolio = new Portfolio;
 
@@ -66,8 +66,8 @@ class HandleAssetInput {
       portfolio.replaceAsset(asset);
 
       operation === 'addAsset' 
-        ? new addAssetSuccess(this.ticker)
-        : new editAssetSuccess(this.ticker);
+        ? new AddAssetSuccess(this.ticker)
+        : new EditAssetSuccess(this.ticker);
 
     } else {
       switch (responseStatus) {
