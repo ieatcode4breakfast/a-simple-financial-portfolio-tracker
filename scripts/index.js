@@ -47,7 +47,7 @@ document.querySelector('.js-update-market-data')
         portfolio.replaceAsset(handleAssetInput);
       });
       
-      new UpdateMarketDataSuccesspdateMarketDataSuccess;
+      new UpdateMarketDataSuccess;
 
     } else {
       switch (responseStatus) {
