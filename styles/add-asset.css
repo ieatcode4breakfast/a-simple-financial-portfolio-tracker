@@ -9,7 +9,7 @@
 
 .add-asset-form-container {
   width: 100%;
-  max-width: 30rem;
+  max-width: 35rem;
   border-radius: 1rem;
   overflow: hidden;
 }
@@ -41,7 +41,7 @@
   text-transform: uppercase;
 }
 
-@media (max-width: 480px) {
+@media (max-width: 560px) {
   .add-asset-form-container {
     border-radius: 0;
   }

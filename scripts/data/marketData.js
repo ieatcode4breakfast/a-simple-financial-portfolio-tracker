@@ -1,11 +1,11 @@
 import storage from '../utils/storage.js';
 
-const API_KEY = storage.get('apiKey') || '';
-
 const marketData = {
   stored: storage.get('marketData') || [],
 
   getSingleQuote: async function(ticker) {
+    const API_KEY = storage.get('apiKey') || '';
+
     try {
       const url = `https://yahoo-finance127.p.rapidapi.com/price/${ticker}`;
 
@@ -18,16 +18,25 @@ const marketData = {
       };
 
       const response = await fetch(url, options);
+
+      if (response.status !== 200) {
+        throw response.status;
+      };
+
       const result = await response.json();
+
       const asset = this.buildAssetDetails(ticker, result);
       this.storeAsset(ticker, asset);
+      return response.status;
 
     } catch (error) {
-      console.error(`An error occured while retrieving market data for ticker symbol ${ticker}`, error);
+      console.error(`An error occured while retrieving market data:`, error);
+      return error;
     }
   },
 
   getMultiQuote: async function(portfolio) {
+    const API_KEY = storage.get('apiKey') || '';
     const tickers = portfolio.assets.map(asset => asset.ticker);
     const tickersString = tickers.join(',');
 
@@ -42,18 +51,24 @@ const marketData = {
       };
 
       const response = await fetch(url, options);
+
+      if (response.status !== 200) {
+        throw response.status;
+      };
+
       const result = await response.json();
       const resultArray = Object.entries(result); // Convert result from an object to an array
-      
-      if (resultArray.length === tickers.length) {
-        tickers.forEach((ticker, index) => {
-          const asset = this.buildAssetDetails(ticker, resultArray[index][1]);
-          this.storeAsset(ticker, asset);
-        });
-      }
+
+      tickers.forEach((ticker, index) => {
+        const asset = this.buildAssetDetails(ticker, resultArray[index][1]);
+        this.storeAsset(ticker, asset);
+      });
+
+      return response.status;
 
     } catch (error) {
-      console.error('An error occured while updating market data.', error);
+      console.error('An error occured while updating market data:', error);
+      return(error);
     }
   },
 

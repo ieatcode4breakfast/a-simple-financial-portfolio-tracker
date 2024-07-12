@@ -3,6 +3,7 @@ import marketData from './marketData.js';
 import Asset from './asset.js';
 import Portfolio from './portfolio.js';
 import apiKeyCheck from '../utils/apiKeyCheck.js';
+import { GeneralError, InvalidApiKey, InvalidTicker, RequestLimitReached } from '../components/popups/networkPopups.js';
 
 const portfolio = new Portfolio;
 
@@ -47,20 +48,38 @@ class HandleAssetInput {
 
     // Check if there is already an existing market data stored for this ticker
     const existingData = marketData.search(this.ticker);
+    let responseStatus;
 
     // If there is no market data stored yet, fetch it from live market data
     if (!existingData) {
-      await marketData.getSingleQuote(this.ticker);
+      responseStatus = await marketData.getSingleQuote(this.ticker);
     }
 
-    const asset = new Asset({ 
-      ticker: this.ticker, 
-      shares: this.#shares, 
-      totalCost: this.#totalCost
-    });
+    if (responseStatus === 200) {
+      const asset = new Asset({ 
+        ticker: this.ticker, 
+        shares: this.#shares, 
+        totalCost: this.#totalCost
+      });
+  
+      portfolio.replaceAsset(asset);
+      window.location.href = './';
 
-    portfolio.replaceAsset(asset);
-    window.location.href = './';
+    } else {
+      switch (responseStatus) {
+        case 403:
+          new InvalidApiKey;
+          break;
+        case 429:
+          new RequestLimitReached;
+          break;
+        case 500:
+          new InvalidTicker;
+          break;
+        default:
+          new GeneralError;
+      }
+    }
   }
 
   #validateInputs() {
