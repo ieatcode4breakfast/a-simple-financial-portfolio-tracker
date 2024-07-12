@@ -4,6 +4,7 @@ import Asset from './asset.js';
 import Portfolio from './portfolio.js';
 import apiKeyCheck from '../utils/apiKeyCheck.js';
 import { GeneralError, InvalidApiKey, InvalidTicker, RequestLimitReached } from '../components/popups/networkPopups.js';
+import { addAssetSuccess, editAssetSuccess } from '../components/popups/completionPopups.js';
 
 const portfolio = new Portfolio;
 
@@ -35,7 +36,7 @@ class HandleAssetInput {
     });
   }
 
-  async submitAsset() {
+  async submitAsset(operation) {
     if (!apiKeyCheck()) return;
     this.ticker = this.tickerInput.value.toUpperCase();
     this.#shares = Number(this.sharesInput.value);
@@ -48,7 +49,7 @@ class HandleAssetInput {
 
     // Check if there is already an existing market data stored for this ticker
     const existingData = marketData.search(this.ticker);
-    let responseStatus;
+    let responseStatus = 200;
 
     // If there is no market data stored yet, fetch it from live market data
     if (!existingData) {
@@ -63,7 +64,10 @@ class HandleAssetInput {
       });
   
       portfolio.replaceAsset(asset);
-      window.location.href = './';
+
+      operation === 'addAsset' 
+        ? new addAssetSuccess(this.ticker)
+        : new editAssetSuccess(this.ticker);
 
     } else {
       switch (responseStatus) {

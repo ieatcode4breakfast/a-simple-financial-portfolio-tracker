@@ -1,6 +1,7 @@
+import { PortfolioResetSuccess } from './completionPopups.js';
 import Popup from './popupTemplate.js';
 
-export class ResetPorftolio extends Popup {
+export class ResetPortfolio extends Popup {
   #portfolio
 
   constructor(portfolio) {
@@ -15,6 +16,7 @@ export class ResetPorftolio extends Popup {
 
   action() {
     this.#portfolio.reset();
+    new PortfolioResetSuccess;
   }
 }
 

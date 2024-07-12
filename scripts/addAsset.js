@@ -26,7 +26,7 @@ class AddAsset extends HandleAssetInput {
         return;
       }
 
-      this.submitAsset();
+      this.submitAsset('addAsset'); // This argument triggers the "successfully added" popup
     });
   }
 }

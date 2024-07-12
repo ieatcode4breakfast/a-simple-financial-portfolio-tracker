@@ -1,4 +1,5 @@
 import storage from '../../utils/storage.js';
+import { apiKeyUpdateSuccess } from './completionPopups.js';
 import Popup from './popupTemplate.js';
 
 export class ApiKeyPrompt extends Popup {
@@ -33,7 +34,6 @@ export class ApiKeyPrompt extends Popup {
     }
 
     storage.set('apiKey', this.apiInput.value);
-    this.close();
-    window.location.reload();
+    new apiKeyUpdateSuccess;
   }
 }

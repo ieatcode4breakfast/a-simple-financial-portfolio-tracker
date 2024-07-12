@@ -48,7 +48,6 @@ class Portfolio {
 
   reset() {
     storage.clear();
-    window.location.reload();
   }
 
   update() {

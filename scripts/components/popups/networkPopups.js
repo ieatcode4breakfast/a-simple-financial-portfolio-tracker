@@ -25,13 +25,9 @@ export class InvalidApiKey extends Popup {
 
     document.querySelector('.js-action-button')
       .addEventListener('click', () => {
-        this.action();
+        this.close();
+        window.location.reload();
       });
-  }
-
-  action() {
-    this.close();
-    window.location.reload();
   }
 }
 
@@ -57,13 +53,9 @@ export class RequestLimitReached extends Popup {
 
     document.querySelector('.js-action-button')
       .addEventListener('click', () => {
-        this.action();
+        this.close();
+        window.location.href = './';
       });
-  }
-
-  action() {
-    this.close();
-    window.location.href = './';
   }
 }
 
@@ -89,13 +81,9 @@ export class InvalidTicker extends Popup {
 
     document.querySelector('.js-action-button')
       .addEventListener('click', () => {
-        this.action();
+        this.close();
+        window.location.reload();
       });
-  }
-
-  action() {
-    this.close();
-    window.location.reload();
   }
 }
 
@@ -121,12 +109,8 @@ export class GeneralError extends Popup {
 
     document.querySelector('.js-action-button')
       .addEventListener('click', () => {
-        this.action();
+        this.close();
+        window.location.reload();
       });
-  }
-
-  action() {
-    this.close();
-    window.location.reload();
   }
 }

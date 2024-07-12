@@ -5,9 +5,10 @@ import EditCash from './components/popups/editCashPopup.js';
 import Asset from './data/asset.js';
 import marketData from './data/marketData.js';
 import apiKeyCheck from './utils/apiKeyCheck.js';
-import { ResetPorftolio } from './components/popups/prompts.js';
+import { ResetPortfolio } from './components/popups/prompts.js';
 import { ApiKeyPrompt } from './components/popups/apiKeyPopup.js';
 import { InvalidApiKey, RequestLimitReached, GeneralError } from './components/popups/networkPopups.js';
+import { updateMarketDataSuccess } from './components/popups/completionPopups.js';
 
 export const portfolio = new Portfolio();
 export const portfolioTable = new PortfolioTable;
@@ -46,7 +47,7 @@ document.querySelector('.js-update-market-data')
         portfolio.replaceAsset(handleAssetInput);
       });
       
-      window.location.reload();
+      new updateMarketDataSuccess;
 
     } else {
       switch (responseStatus) {
@@ -64,7 +65,7 @@ document.querySelector('.js-update-market-data')
 
 document.querySelector('.js-reset-portfolio')
   .addEventListener('click', () => {
-    new ResetPorftolio(portfolio);
+    new ResetPortfolio(portfolio);
   });
 
 document.querySelectorAll('.js-portfolio-table th:not(.js-remove-icons-header)')
