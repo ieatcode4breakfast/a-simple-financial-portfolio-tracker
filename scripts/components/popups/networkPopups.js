@@ -1,7 +1,8 @@
 import Popup from './popupTemplate.js';
 import storage from '../../utils/storage.js';
+import { SingleActionPopup } from './singleActionPopup.js';
 
-export class InvalidApiKey extends Popup {
+export class InvalidApiKey extends SingleActionPopup {
   constructor() {
     super(
       'Invalid API Key',
@@ -12,26 +13,12 @@ export class InvalidApiKey extends Popup {
     storage.set('apiKey', '');
   }
 
-  display() {
-    document.querySelector('.js-popup-section').style.display = "flex";
-    this.popupBody = document.querySelector('.js-popup-body');
-    this.popupBody.innerHTML = `
-      <div class="popup-content js-popup-content">
-      </div>
-      <div class="buttons-section">
-        <button class="js-action-button"></button>
-      </div>
-    `
-
-    document.querySelector('.js-action-button')
-      .addEventListener('click', () => {
-        this.close();
-        window.location.reload();
-      });
+  action() {
+    window.location.reload();
   }
 }
 
-export class RequestLimitReached extends Popup {
+export class RequestLimitReached extends SingleActionPopup {
   constructor() {
     super(
       'API limit reached',
@@ -40,26 +27,12 @@ export class RequestLimitReached extends Popup {
     )
   }
 
-  display() {
-    document.querySelector('.js-popup-section').style.display = "flex";
-    this.popupBody = document.querySelector('.js-popup-body');
-    this.popupBody.innerHTML = `
-      <div class="popup-content js-popup-content">
-      </div>
-      <div class="buttons-section">
-        <button class="js-action-button"></button>
-      </div>
-    `
-
-    document.querySelector('.js-action-button')
-      .addEventListener('click', () => {
-        this.close();
-        window.location.href = './';
-      });
+  action() {
+    window.location.href = './';
   }
 }
 
-export class InvalidTicker extends Popup {
+export class InvalidTicker extends SingleActionPopup {
   constructor() {
     super(
       'Invalid ticker',
@@ -68,26 +41,12 @@ export class InvalidTicker extends Popup {
     )
   }
 
-  display() {
-    document.querySelector('.js-popup-section').style.display = "flex";
-    this.popupBody = document.querySelector('.js-popup-body');
-    this.popupBody.innerHTML = `
-      <div class="popup-content js-popup-content">
-      </div>
-      <div class="buttons-section">
-        <button class="js-action-button"></button>
-      </div>
-    `
-
-    document.querySelector('.js-action-button')
-      .addEventListener('click', () => {
-        this.close();
-        window.location.reload();
-      });
+  action() {
+    this.close();
   }
 }
 
-export class GeneralError extends Popup {
+export class GeneralError extends SingleActionPopup {
   constructor() {
     super(
       'Unexpected error',
@@ -96,21 +55,7 @@ export class GeneralError extends Popup {
     )
   }
 
-  display() {
-    document.querySelector('.js-popup-section').style.display = "flex";
-    this.popupBody = document.querySelector('.js-popup-body');
-    this.popupBody.innerHTML = `
-      <div class="popup-content js-popup-content">
-      </div>
-      <div class="buttons-section">
-        <button class="js-action-button"></button>
-      </div>
-    `
-
-    document.querySelector('.js-action-button')
-      .addEventListener('click', () => {
-        this.close();
-        window.location.reload();
-      });
+  action() {
+    window.location.reload();
   }
 }

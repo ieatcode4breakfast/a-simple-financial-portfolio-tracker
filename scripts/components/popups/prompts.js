@@ -1,5 +1,6 @@
 import { PortfolioResetSuccess } from './completionPopups.js';
 import Popup from './popupTemplate.js';
+import { SingleActionPopup } from './singleActionPopup.js';
 
 export class ResetPortfolio extends Popup {
   #portfolio
@@ -20,37 +21,6 @@ export class ResetPortfolio extends Popup {
   }
 }
 
-export class NoAsset extends Popup {
-  constructor() {
-    super(
-      'No asset being edited',
-      `There isn't an asset currently being edited.`,
-      'Close'
-    )
-  }
-
-  display() {
-    document.querySelector('.js-popup-section').style.display = "flex";
-    this.popupBody = document.querySelector('.js-popup-body');
-    this.popupBody.innerHTML = `
-      <div class="popup-content js-popup-content">
-      </div>
-      <div class="buttons-section">
-        <button class="js-action-button"></button>
-      </div>
-    `
-
-    document.querySelector('.js-action-button')
-      .addEventListener('click', () => {
-        this.action();
-      });
-  }
-
-  action() {
-    window.location.href = './';
-  }
-}
-
 export class OverrideExisting extends Popup {
   #addAssetClass;
 
@@ -68,4 +38,20 @@ export class OverrideExisting extends Popup {
     this.#addAssetClass.submitAsset();
   }
 }
+
+
+export class NoAsset extends SingleActionPopup {
+  constructor() {
+    super(
+      'No asset being edited',
+      `There isn't an asset currently being edited.`,
+      'Close'
+    )
+  }
+
+  action() {
+    window.location.href = './';
+  }
+}
+
 

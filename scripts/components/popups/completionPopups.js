@@ -1,6 +1,7 @@
 import Popup from './popupTemplate.js';
+import { SingleActionPopup } from './singleActionPopup.js';
 
-export class addAssetSuccess extends Popup {
+export class addAssetSuccess extends SingleActionPopup {
   constructor(ticker) {
     super(
       'Success!',
@@ -9,29 +10,12 @@ export class addAssetSuccess extends Popup {
     )
   }
 
-  display() {
-    document.querySelector('.js-popup-section').style.display = "flex";
-    this.popupBody = document.querySelector('.js-popup-body');
-    this.popupBody.innerHTML = `
-      <div class="popup-content js-popup-content">
-      </div>
-      <div class="buttons-section">
-        <button class="js-action-button"></button>
-      </div>
-    `
-
-    document.querySelector('.js-action-button')
-      .addEventListener('click', () => {
-        this.action();
-      });
-  }
-
   action() {
     window.location.href = './';
   }
 }
 
-export class editAssetSuccess extends Popup {
+export class editAssetSuccess extends SingleActionPopup {
   constructor(ticker) {
     super(
       'Success!',
@@ -40,29 +24,12 @@ export class editAssetSuccess extends Popup {
     )
   }
 
-  display() {
-    document.querySelector('.js-popup-section').style.display = "flex";
-    this.popupBody = document.querySelector('.js-popup-body');
-    this.popupBody.innerHTML = `
-      <div class="popup-content js-popup-content">
-      </div>
-      <div class="buttons-section">
-        <button class="js-action-button"></button>
-      </div>
-    `
-
-    document.querySelector('.js-action-button')
-      .addEventListener('click', () => {
-        this.action();
-      });
-  }
-
   action() {
     window.location.href = './';
   }
 }
 
-export class editCashSuccess extends Popup {
+export class editCashSuccess extends SingleActionPopup {
   constructor() {
     super(
       'Success!',
@@ -71,29 +38,12 @@ export class editCashSuccess extends Popup {
     )
   }
 
-  display() {
-    document.querySelector('.js-popup-section').style.display = "flex";
-    this.popupBody = document.querySelector('.js-popup-body');
-    this.popupBody.innerHTML = `
-      <div class="popup-content js-popup-content">
-      </div>
-      <div class="buttons-section">
-        <button class="js-action-button"></button>
-      </div>
-    `
-
-    document.querySelector('.js-action-button')
-      .addEventListener('click', () => {
-        this.action();
-      });
-  }
-
   action() {
     this.close();
   }
 }
 
-export class updateMarketDataSuccess extends Popup {
+export class updateMarketDataSuccess extends SingleActionPopup {
   constructor() {
     super(
       'Success!',
@@ -102,29 +52,12 @@ export class updateMarketDataSuccess extends Popup {
     )
   }
 
-  display() {
-    document.querySelector('.js-popup-section').style.display = "flex";
-    this.popupBody = document.querySelector('.js-popup-body');
-    this.popupBody.innerHTML = `
-      <div class="popup-content js-popup-content">
-      </div>
-      <div class="buttons-section">
-        <button class="js-action-button"></button>
-      </div>
-    `
-
-    document.querySelector('.js-action-button')
-      .addEventListener('click', () => {
-        this.action();
-      });
-  }
-
   action() {
     window.location.reload();
   }
 }
 
-export class apiKeyUpdateSuccess extends Popup {
+export class apiKeyUpdateSuccess extends SingleActionPopup {
   constructor() {
     super(
       'Success!',
@@ -133,52 +66,18 @@ export class apiKeyUpdateSuccess extends Popup {
     )
   }
 
-  display() {
-    document.querySelector('.js-popup-section').style.display = "flex";
-    this.popupBody = document.querySelector('.js-popup-body');
-    this.popupBody.innerHTML = `
-      <div class="popup-content js-popup-content">
-      </div>
-      <div class="buttons-section">
-        <button class="js-action-button"></button>
-      </div>
-    `
-
-    document.querySelector('.js-action-button')
-      .addEventListener('click', () => {
-        this.action();
-      });
-  }
-
   action() {
     this.close();
   }
 }
 
-export class PortfolioResetSuccess extends Popup {
+export class PortfolioResetSuccess extends SingleActionPopup {
   constructor() {
     super(
       'Success!',
       `Your portfolio has been reset.`,
       'OK'
     )
-  }
-
-  display() {
-    document.querySelector('.js-popup-section').style.display = "flex";
-    this.popupBody = document.querySelector('.js-popup-body');
-    this.popupBody.innerHTML = `
-      <div class="popup-content js-popup-content">
-      </div>
-      <div class="buttons-section">
-        <button class="js-action-button"></button>
-      </div>
-    `
-
-    document.querySelector('.js-action-button')
-      .addEventListener('click', () => {
-        this.action();
-      });
   }
 
   action() {
