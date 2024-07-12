@@ -75,10 +75,9 @@ class Portfolio {
 
     const sortStrings = isNaN(this.assets[0][sortBy]); // Determine if the values being sorted are not numbers
 
-    // Triggers when a new property is being sorted
-    // If strings are being sorted, the default is to sort by ascending order
-    // If numbers are being sorted, the default is to sort by descending order
-    if (this.lastPropertySorted !== sortBy) {
+    if (this.lastPropertySorted !== sortBy) { // Triggers when a new property is being sorted
+      // If strings are being sorted, the default is to sort by ascending order
+      // If numbers are being sorted, the default is to sort by descending order
       this.sortAscending = sortStrings; // if sortStrings is true, then sortAscending is true
     }
   
