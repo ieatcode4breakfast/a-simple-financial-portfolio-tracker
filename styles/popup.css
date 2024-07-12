@@ -24,7 +24,7 @@
 
 .popup-body {
   background-color: var(--primary-text-color);
-  color: var(--portfolio-cell-text-color);
+  color: var(--secondary-text-color);
   padding: 1.5rem;
 }
 

@@ -4,17 +4,17 @@
   --background-color: rgb(15, 15, 15);
   --accent-color: rgb(45, 45, 45);
   --primary-text-color: rgb(255, 255, 255);
-  --portfolio-cell-text-color: rgb(0, 0, 0);
+  --secondary-text-color: rgb(0, 0, 0);
   --row-odd: rgb(225, 225, 225);
   --row-even: rgb(255, 255, 255);
   --row-hover: rgb(175, 175, 175);
   --positive: rgb(24, 134, 24);
   --negative: rgb(255, 79, 79);
   --error: rgb(255, 79, 79);
+  --input-error: rgb(255, 79, 79);
   --portfolio-option-active: rgb(40, 40, 40);
   --tooltip-background: rgb(55, 55, 55);
-  --popup-button-hover: rgb(75, 75, 75);
-  --input-error: rgb(255, 79, 79);
+  --regular-button-hover: rgb(75, 75, 75);
 }
 
 body {
@@ -73,7 +73,7 @@ button {
 }
 
 button:hover {
-  background-color: var(--popup-button-hover);
+  background-color: var(--regular-button-hover);
 }
 
 .buttons-section {
