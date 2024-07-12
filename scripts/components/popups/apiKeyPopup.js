@@ -10,7 +10,7 @@ export class ApiKeyPrompt extends Popup {
       `
         Please enter your API key:
         <input class="js-api-input" type="text">
-
+        <span class="error-message js-error-message">Invalid input.</span>
         <p class="api-key-instruction">
           This app uses Stock Pulse API from RapidAPI.com. To use or test this app, visit the Stock Pulse API page where you can sign up and get your own free API key for testing:
         </p>
@@ -22,9 +22,16 @@ export class ApiKeyPrompt extends Popup {
     );
 
     this.apiInput = document.querySelector('.js-api-input');
+    this.apiInput.focus();
   }
 
   action() {
+    if (this.apiInput.value === '') {
+      document.querySelector('.js-error-message').style.display = 'initial';
+      this.apiInput.focus();
+      return;
+    }
+
     storage.set('apiKey', this.apiInput.value);
     this.close();
     window.location.reload();
