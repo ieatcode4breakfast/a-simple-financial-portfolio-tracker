@@ -10,6 +10,13 @@ export class ApiKeyPrompt extends Popup {
       `
         Please enter your API key:
         <input class="js-api-input" type="text">
+
+        <p class="api-key-instruction">
+          This app uses Stock Pulse API from RapidAPI.com. To use or test this app, visit the Stock Pulse API page where you can sign up and get your own free API key for testing:
+        </p>
+        <a href="https://rapidapi.com/manwilbahaa/api/yahoo-finance127">
+          https://rapidapi.com/manwilbahaa/api/yahoo-finance127
+        </a>
       `,
       'Submit'
     );

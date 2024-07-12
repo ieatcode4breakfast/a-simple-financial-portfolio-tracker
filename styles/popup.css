@@ -25,7 +25,7 @@
 .popup-body {
   background-color: var(--primary-text-color);
   color: var(--portfolio-cell-text-color);
-  padding: 1rem;
+  padding: 1.5rem;
 }
 
 .popup-content {
@@ -33,4 +33,8 @@
   flex-direction: column;
   align-items: center;
   text-align: center;
+}
+
+.api-key-instruction {
+  text-align: justify;
 }
