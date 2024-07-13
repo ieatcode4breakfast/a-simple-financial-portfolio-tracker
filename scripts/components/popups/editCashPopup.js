@@ -19,6 +19,7 @@ class EditCash extends Popup {
     );
 
     this.cashInput = document.querySelector('.js-cash-input')
+    this.cashInput.value = portfolio.cashBalance;
     this.cashInput.focus();
   }
 
