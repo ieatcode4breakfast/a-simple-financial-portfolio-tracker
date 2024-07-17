@@ -30,8 +30,7 @@ class EditCash extends Popup {
       return;
     }
 
-    portfolio.cashBalance = Number(this.cashInput.value);
-    portfolio.update();
+    portfolio.updateCashBalance(Number(this.cashInput.value))
     portfolioTable.renderAssets(portfolio);
     summary.render(portfolio);
     new EditCashSuccess;

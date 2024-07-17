@@ -23,7 +23,7 @@ class Portfolio {
 
   addAsset(asset) {
     this.assets.push(asset);
-    this.update();
+    this.#update();
   }
 
   replaceAsset(asset) {
@@ -38,21 +38,21 @@ class Portfolio {
       this.addAsset(asset);
     }
 
-    this.update();
+    this.#update();
   }
 
   removeAsset(id) {
     this.assets = this.assets.filter(asset => asset.id !== Number(id));
-    this.update();
+    this.#update();
+  }
+
+  updateCashBalance(newCashBalance) {
+    this.cashBalance = newCashBalance;
+    this.#update();
   }
 
   reset() {
     storage.clear();
-  }
-
-  update() {
-    this.#calculateTotals();
-    storage.set('portfolioData', this);
   }
 
   search(ticker) {
@@ -94,12 +94,17 @@ class Portfolio {
 
     this.lastPropertySorted = sortBy;
     this.sortAscending = !this.sortAscending;
-    this.update();
+    this.#update();
   }
 
   editAsset(id) {
     const toEdit = this.assets.find(asset => asset.id === Number(id));
     storage.set('toEdit', toEdit);
+  }
+
+  #update() {
+    this.#calculateTotals();
+    storage.set('portfolioData', this);
   }
 
   #calculateTotals() {
