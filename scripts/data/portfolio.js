@@ -51,10 +51,6 @@ class Portfolio {
     this.#update();
   }
 
-  reset() {
-    storage.clear();
-  }
-
   search(ticker) {
     return this.assets.find(asset => asset.ticker === ticker);
   }

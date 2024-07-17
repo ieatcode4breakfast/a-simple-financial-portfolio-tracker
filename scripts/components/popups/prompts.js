@@ -1,3 +1,4 @@
+import storage from '../../utils/storage.js';
 import { PortfolioResetSuccess } from './completionPopups.js';
 import Popup from './popupTemplate.js';
 import { SingleActionPopup } from './singleActionPopup.js';
@@ -16,7 +17,7 @@ export class ResetPortfolio extends Popup {
   }
 
   action() {
-    this.#portfolio.reset();
+    storage.clear();
     new PortfolioResetSuccess;
   }
 }
