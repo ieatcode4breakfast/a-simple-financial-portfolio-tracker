@@ -4,16 +4,12 @@ import Popup from './popupTemplate.js';
 import { SingleActionPopup } from './singleActionPopup.js';
 
 export class ResetPortfolio extends Popup {
-  #portfolio
-
-  constructor(portfolio) {
+  constructor() {
     super(
       'Reset Portfolio',
       'This action is irreversible and all your current data will be lost. Are you sure you would like to proceed?',
       'Confirm'
     );
-
-    this.#portfolio = portfolio;
   }
 
   action() {
